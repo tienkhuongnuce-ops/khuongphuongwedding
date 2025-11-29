@@ -7,7 +7,7 @@ import Wishes from './components/Wishes';
 import RSVP from './components/RSVP';
 import Footer from './components/Footer';
 
-const App: React.FC = () => {
+const Application: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-gray-800 selection:bg-wedding-red selection:text-white">
       <Hero />
@@ -31,4 +31,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Application;
