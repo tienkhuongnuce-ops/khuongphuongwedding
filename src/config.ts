@@ -56,13 +56,13 @@ export const weddingConfig = {
     // Photos for the gallery section
     // Matches your files: public/GL1.jpg, public/GL2.jpg, etc.
     gallery: [
-      "/GL1.jpg",
-      "/GL2.jpg",
-      "/GL3.jpg",
+      "/gallery 1.jpg",
+      "/gallery 2.jpg",
+      "/gallery 3.jpg",
       // Duplicating to fill grid if needed
-      "/GL1.jpg", 
-      "/GL2.jpg",
-      "/GL3.jpg"
+      "/gallery 1.jpg",
+      "/gallery 2.jpg",
+      "/gallery 3.jpg",
     ]
   },
   timeline: [
