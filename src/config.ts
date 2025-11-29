@@ -43,7 +43,7 @@ export const weddingConfig = {
   images: {
     // IMPORTANT: Put these images in the "public" folder at the project root.
     // Example: public/hero.jpg
-    hero: "/hero.jpg", 
+    hero: "/Couple.jpg", 
     
     // Rename your gallery photos to match these names:
     gallery: [
