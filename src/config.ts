@@ -42,7 +42,7 @@ export const weddingConfig = {
   },
   images: {
     // The main large photo at the top
-    hero: "/couple.jpg",
+    hero: "/Couple.jpg",
     // Photos for the gallery section
     gallery: [
       "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=800&auto=format&fit=crop",
