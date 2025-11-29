@@ -47,12 +47,9 @@ export const weddingConfig = {
     
     // Rename your gallery photos to match these names:
     gallery: [
-      "/gallery-1.jpg",
-      "/gallery-2.jpg",
-      "/gallery-3.jpg",
-      "/gallery-4.jpg",
-      "/gallery-5.jpg",
-      "/gallery-6.jpg",
+      "/gallery1.jpg",
+      "/gallery2.jpg",
+      "/gallery3.jpg",
     ]
   },
   timeline: [
