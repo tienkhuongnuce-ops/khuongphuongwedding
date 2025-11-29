@@ -32,6 +32,11 @@ export const weddingConfig = {
     time: "11:30",
     rsvpDeadline: "01/12/2025"
   },
+  music: {
+    enabled: true,
+    autoPlay: false, // Browsers often block autoplay, so we default to false/manual play
+    songUrl: "/wedding-song.mp3" // Put your mp3 file in the 'public' folder
+  },
   video: {
     title: "Pre-wedding Film",
     subtitle: "Lưu giữ khoảnh khắc",
@@ -42,8 +47,20 @@ export const weddingConfig = {
   },
   images: {
     // The main large photo at the top
-    hero: "/Couple.jpg",
+    // TIP: To use your own, put 'hero-bg.jpg' in the 'public' folder and uncomment the line below:
+    // hero: "/hero-bg.jpg", 
+    hero: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop",
+
+    // Specific profile photos for the Invitation Card
+    // TIP: Put 'groom.jpg' and 'bride.jpg' in the 'public' folder
+    groom: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
+    bride: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=300&auto=format&fit=crop",
+    
     // Photos for the gallery section
+    // HOW TO ADD YOUR OWN PHOTOS:
+    // 1. Put the photo file (e.g., photo1.jpg) in the 'public' folder.
+    // 2. Add "/photo1.jpg" to this list.
+    // 3. Make sure the filename matches EXACTLY (case-sensitive).
     gallery: [
       "/GL1.jpg",
       "/GL2.jpg",
