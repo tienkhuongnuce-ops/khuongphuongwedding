@@ -48,7 +48,6 @@ export const weddingConfig = {
       "/GL1.jpg",
       "/GL2.jpg",
       "/GL3.jpg",
-
     ]
   },
   timeline: [
