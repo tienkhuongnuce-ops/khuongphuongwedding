@@ -6,7 +6,7 @@ import React from 'react';
 
 export const weddingConfig = {
   // RENAME THIS TO YOUR GOOGLE SCRIPT URL AFTER DEPLOYING (See README)
-  rsvpApiUrl: "https://script.google.com/macros/s/AKfycbzccQOZJuwlesKNXMvtQ6taohp_8qYhKXn0KGjZmghZQtcyEKU7Ce-M78jxAsDzG7Jm/exec", 
+  rsvpApiUrl: "", 
 
   groom: {
     firstName: "Tiến Khương",
@@ -46,13 +46,16 @@ export const weddingConfig = {
   images: {
     // IMPORTANT: Put these images in the "public" folder at the project root.
     // Example: public/hero.jpg
-    hero: "/Couple.jpg", 
+    hero: "/hero.jpg", 
     
     // Rename your gallery photos to match these names:
     gallery: [
-      "/gallery1.jpg",
-      "/gallery2.jpg",
-      "/gallery3.jpg",
+      "/gallery-1.jpg",
+      "/gallery-2.jpg",
+      "/gallery-3.jpg",
+      "/gallery-4.jpg",
+      "/gallery-5.jpg",
+      "/gallery-6.jpg",
     ]
   },
   timeline: [
