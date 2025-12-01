@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
   <head>
@@ -13,19 +14,22 @@
     <script>
       /* 
        * CUSTOMIZE COLORS HERE
-       * Strict Palette: Red, Gold, Cream
+       * Strict Palette: 2 Colors Only
+       * 1. Primary: Red (#9F1239)
+       * 2. Background: Cream (#FDFBF7)
        */
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'wedding-red': '#9F1239',   // Deep Ruby Red (Primary Action, Icons, Main Accent)
-              'wedding-gold': '#B45309',  // Antique Gold (Borders, Secondary Text, Dividers)
-              'wedding-cream': '#FDFBF7', // Warm Cream (Backgrounds)
+              'wedding-primary': '#9F1239', // Deep Ruby Red (Replaces both Red and Gold)
+              'wedding-bg': '#FDFBF7',      // Warm Cream
               
-              'wedding-text': '#374151',   // Crisp Slate (Body text)
-              'wedding-accent': '#9F1239', // Mapped to Red
-              'wedding-hero-text': '#FFFFFF', // Pure White for text on dark images
+              // Mappings for compatibility
+              'wedding-red': '#9F1239',
+              'wedding-gold': '#9F1239',    // Gold is now Red
+              'wedding-cream': '#FDFBF7',
+              'wedding-text': '#374151',
             },
             fontFamily: {
               names: ['"Great Vibes"', '"Dancing Script"', 'cursive'], 
@@ -51,11 +55,11 @@
         background: #FDFBF7;
       }
       ::-webkit-scrollbar-thumb {
-        background: #B45309;
+        background: #9F1239;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #9F1239;
+        background: #881337;
       }
       .animate-float {
         animation: float 6s ease-in-out infinite;
@@ -80,8 +84,20 @@
         to { opacity: 1; transform: translateY(0); }
       }
     </style>
-  </head>
-  <body class="bg-wedding-cream text-wedding-text font-sans antialiased bg-floral-pattern">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-wedding-bg text-wedding-text font-sans antialiased bg-floral-pattern">
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
