@@ -6,7 +6,7 @@ import React from 'react';
 
 export const weddingConfig = {
   // RENAME THIS TO YOUR GOOGLE SCRIPT URL AFTER DEPLOYING (See README)
-  rsvpApiUrl: "https://script.google.com/macros/s/AKfycbyBmn748zj9LOpTCC384_OEBjcOaNY5v4paDfjBEmLnUbKW-X1FPoo7kH2kBOarixds/exec", 
+  rsvpApiUrl: "https://script.google.com/macros/s/AKfycbxbqSFOWuMDa585hAirEaXWOCiKPC8DXeQihADYs7u0U4be02Spyk4Fw2IxPxdPiIsm/exec", 
 
   groom: {
     firstName: "Tiến Khương",
