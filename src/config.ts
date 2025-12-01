@@ -1,4 +1,4 @@
-import { Coffee, GlassWater, Music } from 'lucide-react';
+
 import React from 'react';
 
 // --- CONFIGURATION START ---
@@ -6,12 +6,12 @@ import React from 'react';
 
 export const weddingConfig = {
   // RENAME THIS TO YOUR GOOGLE SCRIPT URL AFTER DEPLOYING (See README)
-  rsvpApiUrl: "https://script.google.com/macros/s/AKfycbxbqSFOWuMDa585hAirEaXWOCiKPC8DXeQihADYs7u0U4be02Spyk4Fw2IxPxdPiIsm/exec", 
+  rsvpApiUrl: "", 
 
   groom: {
     firstName: "Tiến Khương",
     fullName: "Nguyễn Tiến Khương",
-    father: "", // Added to satisfy TypeScript interface in Invitation.tsx. Leave empty if not applicable.
+    father: "", 
     mother: "Tiến Thị Hằng",
     address: "Hưng Đạo, Quốc Oai, Hà Nội",
     role: "Chú Rể (The Groom)",
@@ -38,24 +38,29 @@ export const weddingConfig = {
   video: {
     title: "Pre-wedding Film",
     subtitle: "Lưu giữ khoảnh khắc",
-    // Replace this with your YouTube Embed URL
-    // Format: https://www.youtube.com/embed/VIDEO_ID
-    embedUrl: "<iframe width="560" height="315" src="https://www.youtube.com/embed/q-Lp5c1l_Ys?si=ZpqDX2HFuCxa0d6_&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>", 
+    // Paste ANY valid YouTube link here. 
+    // Works with: https://www.youtube.com/watch?v=... OR https://youtu.be/...
+    embedUrl: "https://www.youtube.com/watch?v=YNjqWlywvdc&list=RDYNjqWlywvdc&start_radio=1", 
     description: "Tình yêu không phải là tìm thấy một người hoàn hảo, mà là học cách nhìn thấy những điều tuyệt vời từ một người chưa hoàn hảo."
   },
   images: {
     // IMPORTANT: Put these images in the "public" folder at the project root.
     // Example: public/hero.jpg
-    hero: "/Couple.jpg", 
+    hero: "/hero.jpg", 
     
+    // Profile photos
+    groom: "/groom.jpg",
+    bride: "/bride.jpg",
+    decoration: "/decoration.png",
+
     // Rename your gallery photos to match these names:
     gallery: [
-      "/gallery1.jpg",
-      "/gallery2.jpg",
-      "/gallery3.jpg",
-      "/gallery4.jpg",
-      "/gallery5.jpg",
-      "/gallery6.jpg",
+      "/gallery-1.jpg",
+      "/gallery-2.jpg",
+      "/gallery-3.jpg",
+      "/gallery-4.jpg",
+      "/gallery-5.jpg",
+      "/gallery-6.jpg",
     ]
   },
   timeline: [
@@ -63,7 +68,7 @@ export const weddingConfig = {
       time: "09:00 AM",
       title: "Lễ Vu Quy (Tea Ceremony)",
       location: "Nhà Riêng Cô Dâu",
-      iconType: "Coffee" // Maps to Lucide icons in Timeline.tsx
+      iconType: "Coffee" 
     },
     {
       time: "11:30 AM",

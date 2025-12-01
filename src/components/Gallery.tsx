@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import SectionTitle from './SectionTitle';
 import { weddingConfig } from '../config';
@@ -6,6 +7,35 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 const Gallery: React.FC = () => {
   const { images, video } = weddingConfig;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // --- SMART VIDEO URL HELPER ---
+  // Converts standard YouTube links (watch?v=...) to Embed links automatically
+  const getEmbedUrl = (url: string) => {
+    try {
+      if (!url) return '';
+      // If it's already an embed link, return it
+      if (url.includes('/embed/')) return url;
+      
+      // Handle standard URL: youtube.com/watch?v=ID
+      if (url.includes('v=')) {
+        const videoId = url.split('v=')[1].split('&')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+      
+      // Handle short URL: youtu.be/ID
+      if (url.includes('youtu.be/')) {
+        const videoId = url.split('youtu.be/')[1].split('?')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+      
+      return url;
+    } catch (e) {
+      console.error("Error parsing YouTube URL:", e);
+      return url;
+    }
+  };
+
+  const videoUrl = video?.embedUrl ? getEmbedUrl(video.embedUrl) : '';
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -49,13 +79,14 @@ const Gallery: React.FC = () => {
         <SectionTitle title="Sweet Moments" subtitle="Những khoảnh khắc đẹp nhất" />
         
         {/* Embedded Video Section */}
-        {video && video.embedUrl && (
+        {video && videoUrl && (
           <div className="mb-16 max-w-4xl mx-auto relative z-10">
             <div className="bg-white p-2 md:p-4 rounded-2xl shadow-lg border border-wedding-primary/20 transform transition-transform duration-500 hover:scale-[1.01]">
+              {/* Video Container - 16:9 Aspect Ratio */}
               <div className="relative w-full pb-[56.25%] rounded-xl overflow-hidden bg-black shadow-inner">
                 <iframe 
                   className="absolute top-0 left-0 w-full h-full"
-                  src={video.embedUrl} 
+                  src={videoUrl} 
                   title="Pre-wedding Video" 
                   frameBorder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -72,27 +103,33 @@ const Gallery: React.FC = () => {
           </div>
         )}
 
-        {/* Photo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {/* Masonry Photo Grid (Pinterest Style) */}
+        {/* columns-1 sm:columns-2 md:columns-3 creates the waterfall effect */}
+        <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
           {images.gallery.map((photo, index) => (
             <div 
               key={index} 
-              className="bg-white p-3 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-zoom-in relative group"
+              className="break-inside-avoid bg-white p-3 rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-zoom-in relative group border border-gray-100"
               onClick={() => openLightbox(index)}
             >
-              <div className="overflow-hidden rounded-md relative aspect-[3/4]">
+              <div className="overflow-hidden rounded-sm relative">
                 <img 
                   src={photo} 
                   alt={`Moment ${index}`} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.onerror = null; 
                     target.src = `https://placehold.co/600x800/FDFBF7/9F1239?text=Photo+${index+1}`;
                   }}
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <ZoomIn className="text-white drop-shadow-md" size={32} />
+                
+                {/* Overlay on Hover */}
+                <div className="absolute inset-0 bg-wedding-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="bg-white/90 p-3 rounded-full text-wedding-primary shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                    <ZoomIn size={24} />
+                  </div>
                 </div>
               </div>
             </div>
