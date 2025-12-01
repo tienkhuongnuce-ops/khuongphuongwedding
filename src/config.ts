@@ -1,4 +1,4 @@
-
+import { Coffee, GlassWater, Music } from 'lucide-react';
 import React from 'react';
 
 // --- CONFIGURATION START ---
@@ -11,16 +11,11 @@ export const weddingConfig = {
   groom: {
     firstName: "Tiến Khương",
     fullName: "Nguyễn Tiến Khương",
-    father: "", 
+    father: "", // Added to satisfy TypeScript interface in Invitation.tsx. Leave empty if not applicable.
     mother: "Tiến Thị Hằng",
     address: "Hưng Đạo, Quốc Oai, Hà Nội",
     role: "Chú Rể (The Groom)",
-    // Link to open Google Maps App (Directions)
-    mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.976492453098412, 105.67053970444307",
-    // Link to display PREVIEW on the website (Embed)
-    // INSTRUCTIONS: Go to Google Maps -> Share -> Embed a map -> Copy HTML -> Extract the "src" URL.
-    // Defaulting to a generated link based on coordinates (might have watermarks).
-    mapEmbedUrl: "https://maps.google.com/maps?q=20.976492453098412,105.67053970444307&hl=vi&z=14&output=embed"
+    mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.976492453098412, 105.67053970444307"
   },
   bride: {
     firstName: "Thu Phương",
@@ -29,10 +24,7 @@ export const weddingConfig = {
     mother: "Lê Thị Thúy",
     address: "Tiền Hải, Thái Bình",
     role: "Cô Dâu (The Bride)",
-    // Link to open Google Maps App (Directions)
-    mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.4399119892005, 106.53997740644134",
-    // Link to display PREVIEW on the website (Embed)
-    mapEmbedUrl: "https://maps.google.com/maps?q=20.4399119892005,106.53997740644134&hl=vi&z=14&output=embed"
+    mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.4399119892005, 106.53997740644134"
   },
   date: {
     fullDate: "28 . 12 . 2025",
@@ -46,83 +38,44 @@ export const weddingConfig = {
   video: {
     title: "Pre-wedding Film",
     subtitle: "Lưu giữ khoảnh khắc",
-    // Paste ANY valid YouTube link here. 
-    // Works with: https://www.youtube.com/watch?v=... OR https://youtu.be/...
-    embedUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", 
+    // Replace this with your YouTube Embed URL
+    // Format: https://www.youtube.com/embed/VIDEO_ID
+    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?si=Example", 
     description: "Tình yêu không phải là tìm thấy một người hoàn hảo, mà là học cách nhìn thấy những điều tuyệt vời từ một người chưa hoàn hảo."
   },
   images: {
     // IMPORTANT: Put these images in the "public" folder at the project root.
     // Example: public/hero.jpg
-    hero: "/hero.jpg", 
+    hero: "/Couple.jpg", 
     
-    // Profile photos
-    groom: "/groom.jpg",
-    bride: "/bride.jpg",
-    decoration: "/decoration.png",
-
     // Rename your gallery photos to match these names:
     gallery: [
-      "/gallery-1.jpg",
-      "/gallery-2.jpg",
-      "/gallery-3.jpg",
-      "/gallery-4.jpg",
-      "/gallery-5.jpg",
-      "/gallery-6.jpg",
+      "/gallery1.jpg",
+      "/gallery2.jpg",
+      "/gallery3.jpg",
+      "/gallery4.jpg",
+      "/gallery5.jpg",
+      "/gallery6.jpg",
     ]
   },
-  timeline: {
-    groom: [
-      {
-        time: "07:00",
-        title: "Chuẩn bị",
-        location: "Nhà Trai",
-        iconType: "Coffee"
-      },
-      {
-        time: "08:30",
-        title: "Xuất Phát Đón Dâu",
-        location: "Di chuyển sang Nhà Gái",
-        iconType: "Car"
-      },
-      {
-        time: "10:30",
-        title: "Lễ Thành Hôn",
-        location: "Tại Nhà Gái",
-        iconType: "Heart"
-      },
-      {
-        time: "11:30",
-        title: "Tiệc Cưới",
-        location: "Trung Tâm Hội Nghị",
-        iconType: "GlassWater"
-      }
-    ],
-    bride: [
-      {
-        time: "06:30",
-        title: "Trang Điểm",
-        location: "Nhà Gái",
-        iconType: "Star"
-      },
-      {
-        time: "09:00",
-        title: "Lễ Vu Quy",
-        location: "Nhà Gái",
-        iconType: "Coffee"
-      },
-      {
-        time: "10:30",
-        title: "Nhà Trai Đến",
-        location: "Nhà Gái",
-        iconType: "Users"
-      },
-      {
-        time: "11:30",
-        title: "Tiệc Cưới",
-        location: "Trung Tâm Hội Nghị",
-        iconType: "GlassWater"
-      }
-    ]
-  }
+  timeline: [
+    {
+      time: "09:00 AM",
+      title: "Lễ Vu Quy (Tea Ceremony)",
+      location: "Nhà Riêng Cô Dâu",
+      iconType: "Coffee" // Maps to Lucide icons in Timeline.tsx
+    },
+    {
+      time: "11:30 AM",
+      title: "Lễ Thành Hôn (Wedding Ceremony)",
+      location: "Trung Tâm Hội Nghị Gem Center",
+      iconType: "GlassWater"
+    },
+    {
+      time: "12:30 PM",
+      title: "Khai Tiệc (Reception)",
+      location: "Sảnh Pollux - Gem Center",
+      iconType: "Music"
+    }
+  ]
 };
