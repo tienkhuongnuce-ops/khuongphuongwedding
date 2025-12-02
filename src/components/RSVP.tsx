@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import SectionTitle from './SectionTitle';
 import { CheckCircle, Loader2 } from 'lucide-react';
 import { weddingConfig } from '../config';
@@ -13,11 +14,23 @@ const RSVP: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    guestOf: 'groom', // Default value
     attending: 'yes',
+    guestOf: 'groom',
     guests: '1',
     message: ''
   });
+
+  // Auto-fill name from URL if present (e.g., ?g=MyName)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const nameFromUrl = params.get('g') || params.get('guest');
+    if (nameFromUrl) {
+      setFormData(prev => ({
+        ...prev,
+        name: decodeURIComponent(nameFromUrl)
+      }));
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,6 +50,7 @@ const RSVP: React.FC = () => {
 
     // Check if API URL is set
     if (!rsvpApiUrl) {
+       // Fallback for demo/no-backend mode
        console.warn("No Google Sheet API URL configured in config.ts");
        setTimeout(() => {
          setSubmitted(true);
@@ -47,15 +61,22 @@ const RSVP: React.FC = () => {
 
     try {
       // Send data to Google Apps Script
+      // payload includes 'type': 'rsvp' to distinguish from wishes
+      const payload = {
+        type: 'rsvp',
+        ...formData
+      };
+
       await fetch(rsvpApiUrl, {
         method: 'POST',
         mode: 'no-cors', 
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...formData, type: 'rsvp' })
+        body: JSON.stringify(payload)
       });
 
+      // Since we use no-cors, we assume success if no network error occurred
       setSubmitted(true);
     } catch (err) {
       console.error(err);
@@ -68,7 +89,7 @@ const RSVP: React.FC = () => {
   return (
     <section id="rsvp" className="py-24 bg-wedding-bg relative border-t border-wedding-primary/10">
       <div className="max-w-2xl mx-auto px-4 relative z-10">
-        <SectionTitle title="R.S.V.P" subtitle={`Vui lòng phản hồi trước ngày ${date.rsvpDeadline}`} />
+        <SectionTitle title="Xác Nhận Tham Gia" />
 
         {submitted ? (
           <div className="bg-white rounded-2xl p-10 text-center shadow-lg animate-fade-in border border-wedding-primary/20">
@@ -108,7 +129,7 @@ const RSVP: React.FC = () => {
                 </div>
               </div>
 
-              {/* Guest Of Selection */}
+              {/* Guest of Side Selection */}
               <div>
                   <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Bạn là khách của?</label>
                   <div className="flex gap-4">
@@ -121,7 +142,7 @@ const RSVP: React.FC = () => {
                             onChange={handleChange}
                             className="peer sr-only" 
                           />
-                          <div className="text-center py-3 border border-gray-200 rounded-lg peer-checked:bg-wedding-primary peer-checked:text-white peer-checked:border-transparent transition-all hover:bg-gray-50 font-medium text-sm">
+                          <div className="text-center py-3 border border-gray-200 rounded-lg peer-checked:bg-blue-900 peer-checked:text-white peer-checked:border-transparent transition-all hover:bg-gray-50">
                               Nhà Trai
                           </div>
                       </label>
@@ -134,7 +155,7 @@ const RSVP: React.FC = () => {
                             onChange={handleChange}
                             className="peer sr-only" 
                           />
-                          <div className="text-center py-3 border border-gray-200 rounded-lg peer-checked:bg-wedding-primary peer-checked:text-white peer-checked:border-transparent transition-all hover:bg-gray-50 font-medium text-sm">
+                          <div className="text-center py-3 border border-gray-200 rounded-lg peer-checked:bg-pink-700 peer-checked:text-white peer-checked:border-transparent transition-all hover:bg-gray-50">
                               Nhà Gái
                           </div>
                       </label>
@@ -186,7 +207,6 @@ const RSVP: React.FC = () => {
                         <option value="2">2 Người</option>
                         <option value="3">3 Người</option>
                         <option value="4">4 Người</option>
-                        <option value="5">5 Người</option>
                      </select>
                 </div>
               </div>
