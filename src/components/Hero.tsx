@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { weddingConfig } from '../config';
-import { ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const { groom, bride, date, images } = weddingConfig;
@@ -60,14 +59,6 @@ const Hero: React.FC = () => {
                 {date.dayOfWeek}
              </p>
         </div>
-      </div>
-
-      {/* 3. Scroll Down Indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce cursor-pointer">
-        <a href="#invitation" className="flex flex-col items-center gap-2 text-white/80 hover:text-white transition-colors">
-            <span className="text-[10px] uppercase tracking-widest">Trượt xuống</span>
-            <ChevronDown size={28} />
-        </a>
       </div>
     </section>
   );
