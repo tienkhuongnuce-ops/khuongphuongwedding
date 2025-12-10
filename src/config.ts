@@ -63,7 +63,7 @@ export const weddingConfig = {
   },
   images: {
     // SAMPLE PHOTOS FROM UNSPLASH (Use these so images show up immediately)
-    hero: "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=2070&auto=format&fit=crop",
+    hero: "/Couple.jpg",
     
     // Profile photos
     groom: "https://images.unsplash.com/photo-1623940866099-da1869e5d774?q=80&w=600&auto=format&fit=crop",
@@ -74,12 +74,10 @@ export const weddingConfig = {
 
     // Gallery photos
     gallery: [
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop", 
-      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop", 
-      "https://images.unsplash.com/photo-1519225448526-0645155be456?q=80&w=800&auto=format&fit=crop", 
-      "https://images.unsplash.com/photo-1522673607200-1645062cd958?q=80&w=800&auto=format&fit=crop", 
-      "https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=800&auto=format&fit=crop", 
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop", 
+      "/gallery1.jpg", 
+      "/gallery2.jpg", 
+      "/gallery3.jpg", 
+      "/gallery4.jpg",
     ]
   },
   timeline: [
