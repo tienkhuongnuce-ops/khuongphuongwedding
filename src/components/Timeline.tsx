@@ -1,14 +1,17 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import SectionTitle from './SectionTitle';
 import { MapPin } from 'lucide-react';
 import { weddingConfig } from '../config';
 
 const Timeline: React.FC = () => {
   const { timeline, date, groom, bride } = weddingConfig;
+  const [activeTab, setActiveTab] = useState<'groom' | 'bride'>('groom');
 
-  // Type guard for timeline (array vs object)
-  const events = Array.isArray(timeline) ? timeline : [];
+  // Handle both legacy array structure (fallback) and new object structure
+  const events = Array.isArray(timeline) 
+    ? timeline 
+    : (timeline as any)[activeTab] || [];
 
   return (
     <section className="py-24 bg-white relative">
@@ -18,12 +21,38 @@ const Timeline: React.FC = () => {
           subtitle={`${date.dayOfWeek}, ${date.fullDate}`} 
         />
         
-        <div className="relative mt-12 mb-20">
+        {/* Tab Navigation */}
+        {!Array.isArray(timeline) && (
+            <div className="flex justify-center mb-16">
+                <div className="bg-wedding-cream p-1 rounded-full border border-wedding-gold/20 inline-flex relative">
+                    <button 
+                        onClick={() => setActiveTab('groom')}
+                        className={`relative z-10 px-8 py-3 rounded-full text-sm md:text-base font-serif font-bold transition-all duration-300 ${activeTab === 'groom' ? 'text-white shadow-md' : 'text-wedding-gold hover:text-wedding-red'}`}
+                    >
+                        Nhà Trai
+                        {activeTab === 'groom' && (
+                            <div className="absolute inset-0 bg-wedding-red rounded-full -z-10 animate-fade-in"></div>
+                        )}
+                    </button>
+                    <button 
+                        onClick={() => setActiveTab('bride')}
+                        className={`relative z-10 px-8 py-3 rounded-full text-sm md:text-base font-serif font-bold transition-all duration-300 ${activeTab === 'bride' ? 'text-white shadow-md' : 'text-wedding-gold hover:text-wedding-red'}`}
+                    >
+                        Nhà Gái
+                         {activeTab === 'bride' && (
+                            <div className="absolute inset-0 bg-wedding-red rounded-full -z-10 animate-fade-in"></div>
+                        )}
+                    </button>
+                </div>
+            </div>
+        )}
+
+        <div className="relative mt-8 mb-20 min-h-[400px]">
           {/* Vertical Dotted Line - Red */}
           <div className="absolute left-[15px] md:left-1/2 transform md:-translate-x-px top-0 bottom-0 border-l-2 border-dashed border-wedding-primary/30"></div>
 
           {events.map((event: any, index: number) => (
-            <div key={index} className={`flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+            <div key={`${activeTab}-${index}`} className={`flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} animate-fade-in`}>
                 
                 {/* Content Box */}
                 <div className="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 text-left md:text-right group">
@@ -49,7 +78,7 @@ const Timeline: React.FC = () => {
                 </div>
                 
                 {/* Center Dot - Red */}
-                <div className="absolute left-[6px] md:left-1/2 transform md:-translate-x-1/2 w-5 h-5 bg-white border-4 border-wedding-primary rounded-full z-10"></div>
+                <div className="absolute left-[6px] md:left-1/2 transform md:-translate-x-1/2 w-5 h-5 bg-white border-4 border-wedding-primary rounded-full z-10 transition-transform duration-300 group-hover:scale-125"></div>
 
                 {/* Empty Space for alignment */}
                 <div className="w-full md:w-5/12 hidden md:block"></div>
@@ -59,7 +88,7 @@ const Timeline: React.FC = () => {
         
         {/* Map Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <a href={groom.mapUrl} target="_blank" rel="noreferrer" className="block group h-full">
+              <a href={groom.mapUrl} target="_blank" rel="noreferrer" className={`block group h-full transition-opacity duration-500 ${activeTab === 'bride' ? 'md:opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                   <div className="bg-white p-6 rounded-2xl border border-wedding-primary/20 group-hover:border-wedding-primary transition-all duration-300 shadow-sm group-hover:shadow-md text-center h-full">
                       <div className="w-12 h-12 bg-wedding-primary/10 text-wedding-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                           <MapPin size={20} />
@@ -88,7 +117,7 @@ const Timeline: React.FC = () => {
                   </div>
               </a>
 
-              <a href={bride.mapUrl} target="_blank" rel="noreferrer" className="block group h-full">
+              <a href={bride.mapUrl} target="_blank" rel="noreferrer" className={`block group h-full transition-opacity duration-500 ${activeTab === 'groom' ? 'md:opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                   <div className="bg-white p-6 rounded-2xl border border-wedding-primary/20 group-hover:border-wedding-primary transition-all duration-300 shadow-sm group-hover:shadow-md text-center h-full">
                       <div className="w-12 h-12 bg-wedding-primary/10 text-wedding-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                           <MapPin size={20} />
