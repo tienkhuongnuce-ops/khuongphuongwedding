@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import SectionTitle from './SectionTitle';
 import { CheckCircle, Loader2 } from 'lucide-react';
@@ -61,7 +60,6 @@ const RSVP: React.FC = () => {
 
     try {
       // Send data to Google Apps Script
-      // payload includes 'type': 'rsvp' to distinguish from wishes
       const payload = {
         type: 'rsvp',
         ...formData
@@ -207,6 +205,7 @@ const RSVP: React.FC = () => {
                         <option value="2">2 Người</option>
                         <option value="3">3 Người</option>
                         <option value="4">4 Người</option>
+                        <option value="5">5 Người</option>
                      </select>
                 </div>
               </div>
