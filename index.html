@@ -25,7 +25,7 @@
               
               'wedding-text': '#374151',   // Crisp Slate (Body text)
               'wedding-accent': '#9F1239', // Mapped to Red
-              'wedding-hero-text': '#FFFFFF', // Pure White for text on dark images
+              'wedding-hero-text': '#FDFBF7', // Cream for text on dark images
             },
             fontFamily: {
               names: ['"Great Vibes"', '"Dancing Script"', 'cursive'], 
@@ -79,6 +79,14 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
       }
+      /* Double Happiness Symbol Animation */
+      .animate-pulse-slow {
+        animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: .8; transform: scale(1.05); }
+      }
     </style>
   <script type="importmap">
 {
@@ -96,6 +104,6 @@
 </head>
   <body class="bg-wedding-cream text-wedding-text font-sans antialiased bg-floral-pattern">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
