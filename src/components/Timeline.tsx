@@ -1,103 +1,138 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SectionTitle from './SectionTitle';
-import { MapPin, Clock } from 'lucide-react';
+import { MapPin, Coffee, GlassWater, Music, Heart, Clock } from 'lucide-react';
 import { weddingConfig } from '../config';
+
+// Helper to map string icon types to Components
+const getIcon = (type: string) => {
+  switch (type) {
+    case 'Coffee': return <Coffee size={18} />;
+    case 'GlassWater': return <GlassWater size={18} />;
+    case 'Music': return <Music size={18} />;
+    default: return <Heart size={18} />;
+  }
+};
 
 const Timeline: React.FC = () => {
   const { timeline, date, groom, bride } = weddingConfig;
-  const [activeTab, setActiveTab] = useState<'groom' | 'bride'>('groom');
 
-  const events = Array.isArray(timeline) 
-    ? timeline 
-    : (timeline as any)[activeTab] || [];
+  // Type guard for timeline (array vs object)
+  const events = Array.isArray(timeline) ? timeline : [];
 
   return (
-    <section className="py-24 bg-wedding-cream relative bg-floral-pattern">
-      <div className="max-w-5xl mx-auto px-4">
+    <section className="py-24 bg-white relative">
+      <div className="max-w-4xl mx-auto px-4">
         <SectionTitle 
-          title="Chương Trình Lễ Cưới" 
-          subtitle={`${date.dayOfWeek} - ${date.fullDate}`} 
+          title="Chương Trình Hôn Lễ" 
+          subtitle={`${date.dayOfWeek}, ${date.fullDate}`} 
         />
         
-        {/* Traditional Tab Switcher */}
-        {!Array.isArray(timeline) && (
-            <div className="flex justify-center mb-16">
-                <div className="flex items-center gap-4">
-                    <button 
-                        onClick={() => setActiveTab('groom')}
-                        className={`px-6 py-3 min-w-[140px] text-center border transition-all duration-300 rounded-lg ${activeTab === 'groom' ? 'border-wedding-red bg-wedding-red text-wedding-cream shadow-md' : 'border-wedding-red/30 text-wedding-red hover:border-wedding-red'}`}
-                    >
-                        <span className="block font-serif text-lg font-bold">Nhà Trai</span>
-                        <span className="text-xs uppercase tracking-wider opacity-80">Quốc Oai</span>
-                    </button>
-                    <div className="text-wedding-red text-2xl font-serif font-bold">囍</div>
-                    <button 
-                        onClick={() => setActiveTab('bride')}
-                        className={`px-6 py-3 min-w-[140px] text-center border transition-all duration-300 rounded-lg ${activeTab === 'bride' ? 'border-wedding-red bg-wedding-red text-wedding-cream shadow-md' : 'border-wedding-red/30 text-wedding-red hover:border-wedding-red'}`}
-                    >
-                        <span className="block font-serif text-lg font-bold">Nhà Gái</span>
-                        <span className="text-xs uppercase tracking-wider opacity-80">Thái Bình</span>
-                    </button>
-                </div>
-            </div>
-        )}
-
-        {/* Timeline Events */}
-        <div className="relative mb-20 px-4">
-          {/* Vertical Line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-4 bottom-4 w-[2px] bg-wedding-red/20"></div>
+        <div className="relative mt-12 mb-20">
+          {/* Vertical Dotted Line - Red */}
+          <div className="absolute left-[15px] md:left-1/2 transform md:-translate-x-px top-0 bottom-0 border-l-2 border-dashed border-wedding-primary/30"></div>
 
           {events.map((event: any, index: number) => (
-            <div key={`${activeTab}-${index}`} className={`flex flex-col md:flex-row items-start justify-center w-full mb-12 relative group ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+            <div key={index} className={`flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
                 
-                {/* Time Badge (Mobile) */}
-                <div className="md:hidden absolute left-[29px] top-0 w-3 h-3 bg-wedding-red rounded-full border-2 border-wedding-cream z-10"></div>
+                {/* Content Box */}
+                <div className="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 text-left md:text-right group cursor-default">
+                   {index % 2 !== 0 && <div className="hidden md:block">
+                       <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
+                       <div className="flex items-center justify-end gap-2 text-wedding-primary mt-1 font-bold">
+                          <span>{event.time}</span>
+                          <Clock size={14} />
+                       </div>
+                       <p className="text-gray-500 text-sm mt-2">{event.location}</p>
+                   </div>}
+                   
+                   {/* Mobile View (Always Left) */}
+                   <div className="md:hidden">
+                       <h3 className="font-serif text-xl text-wedding-text">{event.title}</h3>
+                       <p className="font-bold text-wedding-primary mt-1">{event.time}</p>
+                       <p className="text-gray-500 text-sm mt-2">{event.location}</p>
+                   </div>
 
-                {/* Content */}
-                <div className={`w-full md:w-5/12 pl-20 md:pl-0 md:px-8 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-wedding-red/10 hover:border-wedding-red/30 transition-all shadow-sm group-hover:shadow-md">
-                        <div className={`flex items-center gap-2 mb-2 text-wedding-red font-bold ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                            <Clock size={16} />
-                            <span>{event.time}</span>
-                        </div>
-                        <h3 className="font-serif text-2xl text-wedding-text font-bold mb-2">{event.title}</h3>
-                        <div className={`flex items-start gap-2 text-wedding-gold/80 text-sm ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                            <MapPin size={16} className="mt-1 flex-shrink-0" />
-                            <span>{event.location}</span>
-                        </div>
-                    </div>
+                   {/* Desktop Left View */}
+                   {index % 2 === 0 && <div className="hidden md:block text-right">
+                       <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
+<div className="flex items-center justify-end md:justify-start gap-2 text-wedding-primary mt-1 font-bold">
+                          <Clock size={14} />
+                          <span>{event.time}</span>
+                       </div>
+                       <p className="text-gray-500 text-sm mt-2">{event.location}</p>
+                   </div>}
+                </div>
+                
+                {/* Center Icon Bubble */}
+                <div className="absolute left-[2px] md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-white border-2 border-wedding-primary rounded-full z-10 flex items-center justify-center text-wedding-primary shadow-sm">
+                   {getIcon(event.iconType)}
                 </div>
 
-                {/* Center Marker (Desktop) */}
-                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-wedding-red rounded-full border-4 border-wedding-cream shadow-sm z-10 mt-6 group-hover:scale-125 transition-transform"></div>
-                
+                {/* Empty Space for alignment */}
                 <div className="w-full md:w-5/12 hidden md:block"></div>
             </div>
           ))}
         </div>
         
-        {/* Maps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/40 p-6 rounded-xl border border-wedding-red/10">
-            <div className="text-center group">
-                 <h4 className="font-serif text-xl mb-4 text-wedding-red font-bold flex items-center justify-center gap-2">
-                    <MapPin size={20} />
-                    Địa Chỉ Nhà Trai
-                 </h4>
-                 <p className="mb-4 text-gray-600">{groom.address}</p>
-                 <a href={groom.mapUrl} target="_blank" rel="noreferrer" className="inline-block px-6 py-2 border border-wedding-red text-wedding-red hover:bg-wedding-red hover:text-wedding-cream transition-colors text-sm uppercase tracking-wider rounded-sm">
-                    Xem Bản Đồ
-                 </a>
-            </div>
-            <div className="text-center md:border-l border-wedding-red/20 pt-6 md:pt-0 group">
-                 <h4 className="font-serif text-xl mb-4 text-wedding-red font-bold flex items-center justify-center gap-2">
-                    <MapPin size={20} />
-                    Địa Chỉ Nhà Gái
-                 </h4>
-                 <p className="mb-4 text-gray-600">{bride.address}</p>
-                 <a href={bride.mapUrl} target="_blank" rel="noreferrer" className="inline-block px-6 py-2 border border-wedding-red text-wedding-red hover:bg-wedding-red hover:text-wedding-cream transition-colors text-sm uppercase tracking-wider rounded-sm">
-                    Xem Bản Đồ
-                 </a>
-            </div>
+        {/* Map Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <a href={groom.mapUrl} target="_blank" rel="noreferrer" className="block group h-full">
+                  <div className="bg-white p-6 rounded-2xl border border-wedding-primary/20 group-hover:border-wedding-primary transition-all duration-300 shadow-sm group-hover:shadow-md text-center h-full hover:-translate-y-1">
+                      <div className="w-12 h-12 bg-wedding-primary/10 text-wedding-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                          <MapPin size={20} />
+                      </div>
+                      <h4 className="font-serif text-xl mb-2">Nhà Trai</h4>
+                      <p className="text-gray-500 text-sm mb-4">{groom.address}</p>
+                      
+                      {groom.mapEmbedUrl && (
+                        <div className="w-full h-40 rounded-lg overflow-hidden border border-gray-100 shadow-inner mb-4">
+                           <iframe 
+                             src={groom.mapEmbedUrl} 
+                             width="100%" 
+                             height="100%" 
+                             style={{border:0}} 
+                             allowFullScreen 
+                             loading="lazy" 
+                             referrerPolicy="no-referrer-when-downgrade"
+                             title="Groom Map"
+                           ></iframe>
+                        </div>
+                      )}
+                      
+                      <span className="text-wedding-primary text-xs font-bold uppercase inline-block border-b border-wedding-primary pb-1 group-hover:text-red-800">
+                        Chỉ đường
+                      </span>
+                  </div>
+              </a>
+
+              <a href={bride.mapUrl} target="_blank" rel="noreferrer" className="block group h-full">
+<div className="bg-white p-6 rounded-2xl border border-wedding-primary/20 group-hover:border-wedding-primary transition-all duration-300 shadow-sm group-hover:shadow-md text-center h-full hover:-translate-y-1">
+                      <div className="w-12 h-12 bg-wedding-primary/10 text-wedding-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                          <MapPin size={20} />
+                      </div>
+                      <h4 className="font-serif text-xl mb-2">Nhà Gái</h4>
+                      <p className="text-gray-500 text-sm mb-4">{bride.address}</p>
+                      
+                       {bride.mapEmbedUrl && (
+                        <div className="w-full h-40 rounded-lg overflow-hidden border border-gray-100 shadow-inner mb-4">
+                           <iframe 
+                             src={bride.mapEmbedUrl} 
+                             width="100%" 
+                             height="100%" 
+                             style={{border:0}} 
+                             allowFullScreen 
+                             loading="lazy" 
+                             referrerPolicy="no-referrer-when-downgrade"
+                             title="Bride Map"
+                           ></iframe>
+                        </div>
+                      )}
+
+                      <span className="text-wedding-primary text-xs font-bold uppercase inline-block border-b border-wedding-primary pb-1 group-hover:text-red-800">
+                        Chỉ đường
+                      </span>
+                  </div>
+              </a>
         </div>
       </div>
     </section>
