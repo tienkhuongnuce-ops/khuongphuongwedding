@@ -22,7 +22,7 @@ export const weddingConfig = {
     fullName: "Đào Thu Phương",
     father: "Đào Xuân Tùng",
     mother: "Lê Thị Thúy",
-    address: "Tiền Hải, Thái Bình",
+    address: "Chợ Cây Xanh, Xã Đông Quý, Tiền Hải, Thái Bình",
     role: "Cô Dâu (The Bride)",
     mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.4399119892005, 106.53997740644134",
     // Add an empty string or a valid Google Maps Embed URL here
