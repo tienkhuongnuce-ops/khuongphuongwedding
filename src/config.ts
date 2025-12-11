@@ -11,7 +11,7 @@ export const weddingConfig = {
     fullName: "Nguyễn Tiến Khương",
     father: "", // Added to satisfy TypeScript interface in Invitation.tsx. Leave empty if not applicable.
     mother: "Tiến Thị Hằng",
-    address: "Hưng Đạo, Quốc Oai, Hà Nội",
+    address: "Cụm 1, Xã Hưng Đạo, Quốc Oai, Hà Nội",
     role: "Chú Rể (The Groom)",
     mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.976492453098412, 105.67053970444307",
     // Add an empty string or a valid Google Maps Embed URL here
