@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Hero from './components/Hero';
+import HeroSection from './components/HeroSection';
 import Invitation from './components/Invitation';
 import Timeline from './components/Timeline';
 import Gallery from './components/Gallery';
@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-wedding-red selection:bg-wedding-red selection:text-wedding-cream">
-      <Hero />
+      <HeroSection />
       <Invitation />
       <Timeline />
       <Gallery />
