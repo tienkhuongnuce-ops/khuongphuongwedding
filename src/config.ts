@@ -6,12 +6,19 @@ import React from 'react';
 // Customize your wedding details here.
 
 export const weddingConfig = {
+  // 1. DATA STORAGE CONFIGURATION
+  // To record RSVPs and Wishes, you must deploy a Google Sheet Web App.
+  // Paste your 'Web App URL' here. Leave empty to simulate success in the browser console.
+  api: {
+    submitUrl: "", // e.g., "https://script.google.com/macros/s/AKfycbx.../exec"
+  },
+
   groom: {
     firstName: "Tiến Khương",
     fullName: "Nguyễn Tiến Khương",
     father: "", // Added to satisfy TypeScript interface in Invitation.tsx. Leave empty if not applicable.
     mother: "Tiến Thị Hằng",
-    address: "Cụm 1, Xã Hưng Đạo, Quốc Oai, Hà Nội",
+    address: "Hưng Đạo, Quốc Oai, Hà Nội",
     role: "Chú Rể (The Groom)",
     mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.976492453098412, 105.67053970444307",
     // Add an empty string or a valid Google Maps Embed URL here
@@ -22,7 +29,7 @@ export const weddingConfig = {
     fullName: "Đào Thu Phương",
     father: "Đào Xuân Tùng",
     mother: "Lê Thị Thúy",
-    address: "Chợ Cây Xanh, Xã Đông Quý, Tiền Hải, Thái Bình",
+    address: "Tiền Hải, Thái Bình",
     role: "Cô Dâu (The Bride)",
     mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.4399119892005, 106.53997740644134",
     // Add an empty string or a valid Google Maps Embed URL here
@@ -47,41 +54,49 @@ export const weddingConfig = {
   },
   images: {
     // The main large photo at the top
-    hero: "/Couple.jpg",
+    hero: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop",
     // Photos for the gallery section
     gallery: [
-      "/gallery1.jpg",
-      "/gallery2.jpg",
-      "/gallery3.jpg",
-      "/gallery4.jpg",
-      "/gallery5.jpg",
-      "/gallery6.jpg",
-      "/gallery7.jpg",
-      "/gallery8.jpg",
-      "/gallery9.jpg",
-      "/gallery10.jpg",
-      "/gallery11.jpg",
-      "/gallery12.jpg",
-      "/gallery13.jpg",
+      "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1522673607200-1645062cd958?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519225448526-0645155be456?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1623940866099-da1869e5d774?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=800&auto=format&fit=crop",
+      // Added new photos here
+      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1546193430-c2d207739ed7?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop"
     ]
   },
   timeline: {
     groom: [
       {
-        time: "03:05 AM",
+        time: "06:30 AM",
         title: "Chuẩn Bị & Xuất Phát",
-        location: "Nhà Trai (Cụm 1, Hưng Đạo, Quốc Oai, Hà Nội)",
+        location: "Nhà Trai (Quốc Oai, Hà Nội)",
       },
       {
-        time: "07:30 AM",
-        title: "Lễ Ăn Hỏi (Tại Nhà Gái)",
-        location: "Đông Quý, Tiền Hải, Thái Bình",
+        time: "09:00 AM",
+        title: "Lễ Vu Quy (Tại Nhà Gái)",
+        location: "Tiền Hải, Thái Bình",
       },
       {
-        time: "15:00 PM",
-        title: "Khai Tiệc",
-        location: "Nhà Trai (Cụm 1, Hưng Đạo, Quốc Oai, Hà Nội)",
+        time: "12:30 PM",
+        title: "Đón Dâu Về Hà Nội",
+        location: "Di chuyển",
       },
+      {
+        time: "16:30 PM",
+        title: "Lễ Thành Hôn",
+        location: "Nhà Trai (Quốc Oai, Hà Nội)",
+      },
+       {
+        time: "17:30 PM",
+        title: "Tiệc Mừng (Reception)",
+        location: "Hội Trường / Nhà Trai",
+      }
     ],
     bride: [
       {

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import SectionTitle from './SectionTitle';
-import { Send, Heart } from 'lucide-react';
+import { Send, Heart, Loader2 } from 'lucide-react';
+import { WishData } from '../types';
+import { submitToGoogleSheet } from '../services/storageService';
 
-interface Wish {
+interface Wish extends WishData {
   id: number;
-  name: string;
-  message: string;
-  date: string;
 }
 
 const Wishes: React.FC = () => {
+  // Existing dummy data for initial display
   const [wishes, setWishes] = useState<Wish[]>([
     { id: 1, name: "Minh Anh", message: "Chúc hai bạn trăm năm hạnh phúc! Sớm sinh quý tử nhé.", date: "20/12/2025" },
     { id: 2, name: "Hoàng Nam", message: "Chúc mừng hạnh phúc hai bạn. Mong hai bạn luôn yêu thương và nhường nhịn nhau.", date: "21/12/2025" },
@@ -17,23 +17,36 @@ const Wishes: React.FC = () => {
     { id: 4, name: "Cô Chú Hùng Lan", message: "Chúc hai cháu đầu bạc răng long, gia đình êm ấm, thuận hòa.", date: "23/12/2025" },
     { id: 5, name: "Team Marketing", message: "Happy Wedding! Chúc sếp Khương mãi hạnh phúc bên nóc nhà nhé!", date: "24/12/2025" }
   ]);
+  
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !message) return;
     
+    setIsSubmitting(true);
+
+    const wishData: WishData = {
+        name, 
+        message,
+        date: new Date().toLocaleDateString('vi-VN')
+    };
+
+    // 1. Submit to Google Sheet (Fire and forget, or await)
+    await submitToGoogleSheet(wishData, 'wish');
+
+    // 2. Update local state immediately so the user sees their wish
     const newWish: Wish = {
       id: Date.now(),
-      name,
-      message,
-      date: new Date().toLocaleDateString('vi-VN')
+      ...wishData
     };
     
     setWishes([newWish, ...wishes]);
     setName('');
     setMessage('');
+    setIsSubmitting(false);
   };
 
   return (
@@ -52,6 +65,7 @@ const Wishes: React.FC = () => {
                     className="w-full px-4 py-3 bg-wedding-cream border border-wedding-red/30 focus:border-wedding-red rounded-lg outline-none transition-all text-wedding-red placeholder-wedding-red/40"
                     placeholder="Tên của bạn..."
                     required
+                    disabled={isSubmitting}
                   />
                   <textarea 
                     value={message}
@@ -59,10 +73,15 @@ const Wishes: React.FC = () => {
                     className="w-full px-4 py-3 bg-wedding-cream border border-wedding-red/30 focus:border-wedding-red rounded-lg outline-none transition-all h-40 resize-none text-wedding-red placeholder-wedding-red/40"
                     placeholder="Viết lời chúc của bạn..."
                     required
+                    disabled={isSubmitting}
                   />
-                  <button type="submit" className="w-full bg-wedding-red text-wedding-cream py-3 rounded-lg font-medium hover:bg-wedding-red/90 transition-colors flex items-center justify-center gap-2">
-                    <Send size={16} />
-                    Gửi Lời Chúc
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-wedding-red text-wedding-cream py-3 rounded-lg font-medium hover:bg-wedding-red/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? <Loader2 className="animate-spin" size={16} /> : <Send size={16} />}
+                    {isSubmitting ? 'Đang gửi...' : 'Gửi Lời Chúc'}
                   </button>
                </form>
             </div>
@@ -71,7 +90,7 @@ const Wishes: React.FC = () => {
             <div className="lg:col-span-7">
                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {wishes.map((wish) => (
-                     <div key={wish.id} className="bg-wedding-cream p-6 rounded-xl border border-wedding-red/20 hover:border-wedding-red/40 transition-colors">
+                     <div key={wish.id} className="bg-wedding-cream p-6 rounded-xl border border-wedding-red/20 hover:border-wedding-red/40 transition-colors animate-fade-in">
                         <div className="flex justify-between items-start mb-3">
                            <span className="font-bold text-wedding-red text-lg">{wish.name}</span>
                            <Heart size={16} className="text-wedding-red fill-wedding-red" />

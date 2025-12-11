@@ -1,15 +1,42 @@
 import React, { useState } from 'react';
 import SectionTitle from './SectionTitle';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Loader2 } from 'lucide-react';
 import { weddingConfig } from '../config';
+import { submitToGoogleSheet } from '../services/storageService';
+import { RSVPData } from '../types';
 
 const RSVP: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { date } = weddingConfig;
   
-  const handleSubmit = (e: React.FormEvent) => {
+  // Form State
+  const [formData, setFormData] = useState<RSVPData>({
+      name: '',
+      phoneNumber: '',
+      guestSide: 'groom',
+      attending: 'yes',
+      guests: '1',
+      message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    
+    try {
+        await submitToGoogleSheet(formData, 'rsvp');
+        setSubmitted(true);
+    } catch (error) {
+        alert("Có lỗi xảy ra, vui lòng thử lại sau.");
+    } finally {
+        setIsSubmitting(false);
+    }
   };
 
   return (
@@ -31,11 +58,27 @@ const RSVP: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-2">Họ và Tên</label>
-                    <input required type="text" className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent text-wedding-red placeholder-wedding-red/30" placeholder="Nguyễn Văn A" />
+                    <input 
+                        required 
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        type="text" 
+                        className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent text-wedding-red placeholder-wedding-red/30" 
+                        placeholder="Nguyễn Văn A" 
+                    />
                 </div>
                 <div>
                     <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-2">Số điện thoại</label>
-                    <input required type="tel" className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent text-wedding-red placeholder-wedding-red/30" placeholder="0912..." />
+                    <input 
+                        required 
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        type="tel" 
+                        className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent text-wedding-red placeholder-wedding-red/30" 
+                        placeholder="0912..." 
+                    />
                 </div>
               </div>
 
@@ -44,13 +87,27 @@ const RSVP: React.FC = () => {
                     <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-3">Bạn là khách của</label>
                     <div className="flex gap-4">
                         <label className="flex-1 cursor-pointer">
-                            <input type="radio" name="guest_side" value="groom" className="peer sr-only" defaultChecked />
+                            <input 
+                                type="radio" 
+                                name="guestSide" 
+                                value="groom" 
+                                checked={formData.guestSide === 'groom'}
+                                onChange={handleChange}
+                                className="peer sr-only" 
+                            />
                             <div className="text-center py-2 border border-wedding-red/20 rounded-lg text-wedding-red peer-checked:bg-wedding-red peer-checked:text-wedding-cream peer-checked:border-transparent transition-all font-bold text-sm">
                                 Nhà Trai
                             </div>
                         </label>
                         <label className="flex-1 cursor-pointer">
-                            <input type="radio" name="guest_side" value="bride" className="peer sr-only" />
+                            <input 
+                                type="radio" 
+                                name="guestSide" 
+                                value="bride" 
+                                checked={formData.guestSide === 'bride'}
+                                onChange={handleChange}
+                                className="peer sr-only" 
+                            />
                             <div className="text-center py-2 border border-wedding-red/20 rounded-lg text-wedding-red peer-checked:bg-wedding-red peer-checked:text-wedding-cream peer-checked:border-transparent transition-all font-bold text-sm">
                                 Nhà Gái
                             </div>
@@ -59,7 +116,12 @@ const RSVP: React.FC = () => {
                 </div>
                 <div>
                     <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-2">Số người tham dự</label>
-                    <select className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent text-wedding-red font-bold cursor-pointer">
+                    <select 
+                        name="guests"
+                        value={formData.guests}
+                        onChange={handleChange}
+                        className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent text-wedding-red font-bold cursor-pointer"
+                    >
                         <option value="1">1 Người</option>
                         <option value="2">2 Người</option>
                         <option value="3">3 Người</option>
@@ -73,13 +135,27 @@ const RSVP: React.FC = () => {
                 <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-3">Tham dự</label>
                 <div className="flex gap-4">
                     <label className="flex-1 cursor-pointer">
-                        <input type="radio" name="attending" value="yes" className="peer sr-only" defaultChecked />
+                        <input 
+                            type="radio" 
+                            name="attending" 
+                            value="yes" 
+                            checked={formData.attending === 'yes'}
+                            onChange={handleChange}
+                            className="peer sr-only" 
+                        />
                         <div className="text-center py-3 border border-wedding-red/20 rounded-lg text-wedding-red peer-checked:bg-wedding-red peer-checked:text-wedding-cream peer-checked:border-transparent transition-all font-bold">
                             Có
                         </div>
                     </label>
                     <label className="flex-1 cursor-pointer">
-                        <input type="radio" name="attending" value="no" className="peer sr-only" />
+                        <input 
+                            type="radio" 
+                            name="attending" 
+                            value="no" 
+                            checked={formData.attending === 'no'}
+                            onChange={handleChange}
+                            className="peer sr-only" 
+                        />
                         <div className="text-center py-3 border border-wedding-red/20 rounded-lg text-wedding-red peer-checked:bg-wedding-red/50 peer-checked:text-wedding-cream peer-checked:border-transparent transition-all font-bold">
                             Không
                         </div>
@@ -89,11 +165,29 @@ const RSVP: React.FC = () => {
 
               <div>
                  <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-2">Lời nhắn</label>
-                 <textarea rows={2} className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent resize-none text-wedding-red placeholder-wedding-red/30" placeholder="Lời chúc..."></textarea>
+                 <textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={2} 
+                    className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent resize-none text-wedding-red placeholder-wedding-red/30" 
+                    placeholder="Lời chúc..."
+                ></textarea>
               </div>
 
-              <button type="submit" className="w-full bg-wedding-red text-wedding-cream font-bold py-4 rounded-xl hover:bg-wedding-red/90 transition-all shadow-none border border-wedding-red">
-                Gửi Xác Nhận
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="w-full bg-wedding-red text-wedding-cream font-bold py-4 rounded-xl hover:bg-wedding-red/90 transition-all shadow-none border border-wedding-red flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                    <>
+                        <Loader2 className="animate-spin" />
+                        Đang gửi...
+                    </>
+                ) : (
+                    "Gửi Xác Nhận"
+                )}
               </button>
           </form>
         )}
