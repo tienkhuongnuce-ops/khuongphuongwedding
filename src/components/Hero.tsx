@@ -70,11 +70,11 @@ const Hero: React.FC = () => {
         
         {/* Top Tagline with decorative lines */}
         <div className="mb-4 flex items-center gap-4 opacity-90">
-            <span className="h-[1px] w-8 bg-wedding-cream/60"></span>
-            <span className="text-xs md:text-sm uppercase tracking-[0.4em] text-wedding-cream shadow-sm font-semibold">
-                Save The Date
+            <span className="h-[1px] w-12 bg-wedding-cream/60"></span>
+            <span className="text-sm md:text-base uppercase tracking-[0.3em] text-wedding-cream shadow-sm font-semibold">
+                Thân Mời Đến Dự Lễ Thành Hôn
             </span>
-            <span className="h-[1px] w-8 bg-wedding-cream/60"></span>
+            <span className="h-[1px] w-12 bg-wedding-cream/60"></span>
         </div>
 
         {/* Names Section */}

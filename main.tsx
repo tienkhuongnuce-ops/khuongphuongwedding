@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Hero from './components/Hero.tsx';
-import Invitation from './components/Invitation.tsx';
-import Timeline from './components/Timeline.tsx';
-import Gallery from './components/Gallery.tsx';
-import AIWishGenerator from './components/AIWishGenerator.tsx';
-import Wishes from './components/Wishes.tsx';
-import RSVP from './components/RSVP.tsx';
-import Footer from './components/Footer.tsx';
+import Hero from './components/Hero';
+import Invitation from './components/Invitation';
+import Timeline from './components/Timeline';
+import Gallery from './components/Gallery';
+import AIWishGenerator from './components/AIWishGenerator';
+import Wishes from './components/Wishes';
+import RSVP from './components/RSVP';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
