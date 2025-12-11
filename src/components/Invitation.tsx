@@ -17,7 +17,7 @@ const Invitation: React.FC = () => {
   return (
     <section id="invitation" className="py-24 px-4 relative overflow-hidden bg-wedding-cream">
       
-      <div className="max-w-6xl mx-auto text-center bg-wedding-cream p-8 md:p-16 rounded-[2rem] shadow-none border-2 border-wedding-red/10 relative">
+      <div className="max-w-7xl mx-auto text-center bg-wedding-cream p-8 md:p-16 rounded-[2rem] shadow-none border-2 border-wedding-red/10 relative">
         {/* Double border effect */}
         <div className="absolute inset-3 border border-wedding-red/20 rounded-[1.5rem] pointer-events-none"></div>
 
@@ -33,7 +33,10 @@ const Invitation: React.FC = () => {
         </div>
 
         {guestName && (
-            <div className="my-6 md:my-10 font-names text-6xl md:text-8xl lg:text-9xl text-wedding-red leading-tight break-words px-2 animate-fade-in drop-shadow-md">
+            <div 
+              className="my-8 md:my-12 text-6xl md:text-8xl lg:text-9xl text-wedding-red leading-normal break-words px-4 animate-fade-in drop-shadow-md tracking-widest"
+              style={{ fontFamily: '"Dancing Script", cursive' }}
+            >
                 {guestName}
             </div>
         )}
