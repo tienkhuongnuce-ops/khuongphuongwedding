@@ -6,13 +6,6 @@ import React from 'react';
 // Customize your wedding details here.
 
 export const weddingConfig = {
-  // 1. DATA STORAGE CONFIGURATION
-  // To record RSVPs and Wishes, you must deploy a Google Sheet Web App.
-  // Paste your 'Web App URL' here. Leave empty to simulate success in the browser console.
-  api: {
-    submitUrl: "", // e.g., "https://script.google.com/macros/s/AKfycbx.../exec"
-  },
-
   groom: {
     firstName: "Tiến Khương",
     fullName: "Nguyễn Tiến Khương",
@@ -50,7 +43,7 @@ export const weddingConfig = {
     // Replace this with your YouTube Embed URL
     // Format: https://www.youtube.com/embed/VIDEO_ID
     embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?si=Example", 
-    description: ""
+    description: "Tình yêu không phải là tìm thấy một người hoàn hảo, mà là học cách nhìn thấy những điều tuyệt vời từ một người chưa hoàn hảo."
   },
   images: {
     // The main large photo at the top

@@ -1,96 +1,68 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { weddingConfig } from '../config';
 
 const Invitation: React.FC = () => {
   const { groom, bride } = weddingConfig;
-  const [guestName, setGuestName] = useState('');
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get('to') || params.get('guest') || params.get('name');
-    if (name) {
-      setGuestName(name);
-    }
-  }, []);
 
   return (
     <section id="invitation" className="py-24 px-4 relative overflow-hidden bg-wedding-cream">
+      {/* Removed blobs for cleaner look */}
       
-      <div className="max-w-6xl mx-auto text-center bg-white/50 backdrop-blur-sm p-8 md:p-16 rounded-sm shadow-xl border border-wedding-red/10 relative">
-        {/* Corner Decorations */}
-        <div className="absolute top-4 left-4 w-16 h-16 border-t-2 border-l-2 border-wedding-red/30"></div>
-        <div className="absolute top-4 right-4 w-16 h-16 border-t-2 border-r-2 border-wedding-red/30"></div>
-        <div className="absolute bottom-4 left-4 w-16 h-16 border-b-2 border-l-2 border-wedding-red/30"></div>
-        <div className="absolute bottom-4 right-4 w-16 h-16 border-b-2 border-r-2 border-wedding-red/30"></div>
+      <div className="max-w-4xl mx-auto text-center bg-wedding-cream p-10 md:p-16 rounded-[2rem] shadow-xl border border-wedding-gold relative">
+        {/* Double border effect */}
+        <div className="absolute inset-3 border border-wedding-gold/30 rounded-[1.5rem] pointer-events-none"></div>
 
-        <div className="text-xl md:text-2xl font-serif text-wedding-red/80 mb-2 uppercase tracking-widest">
-            Trân trọng kính mời
+        {/* Simple Traditional Header (—— 囍 ——) */}
+        <div className="flex items-center justify-center gap-6 mb-10">
+            <span className="h-[2px] w-16 md:w-24 bg-wedding-gold/60"></span>
+            <span className="text-5xl md:text-6xl font-serif text-wedding-red font-bold tracking-widest drop-shadow-sm select-none">囍</span>
+            <span className="h-[2px] w-16 md:w-24 bg-wedding-gold/60"></span>
         </div>
-        
-        {guestName && (
-            <div className="my-8 relative">
-                <div className="text-4xl md:text-6xl text-wedding-red font-names drop-shadow-sm p-4" style={{ fontFamily: '"Great Vibes", cursive' }}>
-                    {guestName}
-                </div>
-                <div className="w-32 h-[1px] bg-wedding-red/30 mx-auto mt-4"></div>
-            </div>
-        )}
 
-        <div className="text-wedding-red/80 font-sans italic mb-12">
-            Tới dự bữa cơm thân mật chung vui cùng gia đình chúng tôi
+        <h2 className="text-3xl md:text-4xl font-names text-wedding-red mb-3 drop-shadow-sm">Trân trọng kính mời</h2>
+        <div className="flex items-center justify-center gap-4 text-wedding-gold mb-8">
+            <span className="font-serif italic text-lg opacity-80">Save the Date</span>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 relative mt-8">
-            {/* Center Divider */}
-            <div className="hidden md:flex absolute left-1/2 top-0 bottom-0 w-[1px] bg-wedding-red/20 flex-col items-center justify-center">
-                <div className="bg-wedding-cream p-2 text-2xl">囍</div>
-            </div>
 
-          {/* Groom's Family */}
-          <div className="text-center relative z-10">
-             <div className="mb-6">
-                 <div className="uppercase text-xs tracking-widest text-wedding-red/60 font-bold mb-2">Nhà Trai</div>
-                 <h3 className="text-4xl font-names font-bold text-wedding-red mb-4" style={{ fontFamily: '"Great Vibes", cursive' }}>
-                    {groom.firstName}
-                 </h3>
-                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-wedding-red/20 p-1">
-                     <img src={weddingConfig.images.gallery[0]} alt="Groom" className="w-full h-full object-cover rounded-full" />
-                 </div>
+        <p className="font-serif text-xl md:text-2xl text-gray-700 mb-10 max-w-2xl mx-auto italic leading-relaxed">
+          "Yêu nhau mấy núi cũng trèo, mấy sông cũng lội, mấy đèo cũng qua."
+          <br />
+          <span className="text-base font-sans not-italic text-gray-500 mt-4 block">
+            Chúng mình rất mong chờ sự hiện diện của bạn trong ngày vui này.
+          </span>
+        </p>
+
+        <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24 relative mt-12">
+            {/* Center Divider Desktop */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-wedding-gold/30 to-transparent"></div>
+
+          {/* Groom's Side */}
+          <div className="text-center relative z-10 p-6 transition-all duration-500">
+             <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-wedding-gold p-1 shadow-md">
+                 <img src={weddingConfig.images.gallery[0]} alt="Groom" className="w-full h-full object-cover rounded-full" />
              </div>
-             
-             <div className="space-y-2 font-serif text-wedding-red">
-               <div className="text-sm uppercase tracking-wider font-bold border-b border-wedding-red/20 pb-1 mb-2 inline-block">Trưởng Nam</div>
-               {groom.father && <p className="text-lg">Ông: <span className="font-bold">{groom.father}</span></p>}
-               {groom.mother && <p className="text-lg">Bà: <span className="font-bold">{groom.mother}</span></p>}
-               <p className="text-sm italic text-wedding-red/60 mt-2">{groom.address}</p>
-             </div>
+            <h3 className="text-4xl font-names text-wedding-red mb-2 scale-110 drop-shadow-sm">{groom.firstName}</h3>
+            <p className="text-xs uppercase tracking-widest text-wedding-gold mb-4 font-bold">Chú Rể</p>
+            <div className="font-serif text-gray-800 space-y-1">
+              {groom.father && <p className="font-semibold">Ông: {groom.father}</p>}
+              {groom.mother && <p className="font-semibold">Bà: {groom.mother}</p>}
+            </div>
+            <p className="text-gray-500 text-sm italic mt-3 max-w-xs mx-auto">{groom.address}</p>
           </div>
 
-          {/* Bride's Family */}
-          <div className="text-center relative z-10">
-            <div className="mb-6">
-                 <div className="uppercase text-xs tracking-widest text-wedding-red/60 font-bold mb-2">Nhà Gái</div>
-                 <h3 className="text-4xl font-names font-bold text-wedding-red mb-4" style={{ fontFamily: '"Great Vibes", cursive' }}>
-                    {bride.firstName}
-                 </h3>
-                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-wedding-red/20 p-1">
-                     <img src={weddingConfig.images.gallery[1]} alt="Bride" className="w-full h-full object-cover rounded-full" />
-                 </div>
+          {/* Bride's Side */}
+          <div className="text-center relative z-10 p-6 transition-all duration-500">
+            <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-wedding-gold p-1 shadow-md">
+                 <img src={weddingConfig.images.gallery[1]} alt="Bride" className="w-full h-full object-cover rounded-full" />
              </div>
-
-            <div className="space-y-2 font-serif text-wedding-red">
-               <div className="text-sm uppercase tracking-wider font-bold border-b border-wedding-red/20 pb-1 mb-2 inline-block">Trưởng Nữ</div>
-              {bride.father && <p className="text-lg">Ông: <span className="font-bold">{bride.father}</span></p>}
-              {bride.mother && <p className="text-lg">Bà: <span className="font-bold">{bride.mother}</span></p>}
-              <p className="text-sm italic text-wedding-red/60 mt-2">{bride.address}</p>
+            <h3 className="text-4xl font-names text-wedding-red mb-2 scale-110 drop-shadow-sm">{bride.firstName}</h3>
+            <p className="text-xs uppercase tracking-widest text-wedding-gold mb-4 font-bold">Cô Dâu</p>
+            <div className="font-serif text-gray-800 space-y-1">
+              {bride.father && <p className="font-semibold">Ông: {bride.father}</p>}
+              {bride.mother && <p className="font-semibold">Bà: {bride.mother}</p>}
             </div>
+            <p className="text-gray-500 text-sm italic mt-3 max-w-xs mx-auto">{bride.address}</p>
           </div>
-        </div>
-
-        <div className="mt-16 pt-8 border-t border-wedding-red/10">
-            <p className="font-serif text-xl md:text-2xl text-wedding-red">
-              Sự hiện diện của quý vị là niềm vinh hạnh cho gia đình chúng tôi.
-            </p>
         </div>
       </div>
     </section>
