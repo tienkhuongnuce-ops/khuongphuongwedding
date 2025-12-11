@@ -67,30 +67,20 @@ export const weddingConfig = {
   timeline: {
     groom: [
       {
-        time: "06:30 AM",
+        time: "03:05 AM",
         title: "Chuẩn Bị & Xuất Phát",
-        location: "Nhà Trai (Quốc Oai, Hà Nội)",
+        location: "Nhà Trai (Cụm 1, Hưng Đạo, Quốc Oai, Hà Nội)",
       },
       {
-        time: "09:00 AM",
-        title: "Lễ Vu Quy (Tại Nhà Gái)",
-        location: "Tiền Hải, Thái Bình",
+        time: "07:30 AM",
+        title: "Lễ Ăn Hỏi (Tại Nhà Gái)",
+        location: "Đông Quý, Tiền Hải, Thái Bình",
       },
       {
-        time: "12:30 PM",
-        title: "Đón Dâu Về Hà Nội",
-        location: "Di chuyển",
+        time: "15:00 PM",
+        title: "Khai Tiệc",
+        location: "Nhà Trai (Cụm 1, Hưng Đạo, Quốc Oai, Hà Nội)",
       },
-      {
-        time: "16:30 PM",
-        title: "Lễ Thành Hôn",
-        location: "Nhà Trai (Quốc Oai, Hà Nội)",
-      },
-       {
-        time: "17:30 PM",
-        title: "Tiệc Mừng (Reception)",
-        location: "Hội Trường / Nhà Trai",
-      }
     ],
     bride: [
       {
