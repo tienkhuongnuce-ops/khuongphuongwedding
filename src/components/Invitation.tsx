@@ -31,7 +31,7 @@ const Invitation: React.FC = () => {
         <h2 className="text-3xl md:text-4xl font-names text-wedding-red mb-6 drop-shadow-sm">
             Trân trọng kính mời
             {guestName && (
-                <div className="mt-3 font-serif text-2xl md:text-3xl text-wedding-red">
+                <div className="mt-4 font-script text-4xl md:text-5xl text-wedding-red font-bold">
                     {guestName}
                 </div>
             )}
