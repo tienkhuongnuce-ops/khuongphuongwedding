@@ -40,11 +40,17 @@ const Hero: React.FC = () => {
 
         {/* Names Section */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 my-4">
-            <h1 className="font-names font-bold text-6xl md:text-8xl lg:text-9xl text-wedding-cream drop-shadow-sm">
+            <h1 
+              className="font-names font-bold text-6xl md:text-8xl lg:text-9xl text-wedding-cream drop-shadow-sm"
+              style={{ fontFamily: '"Great Vibes", cursive' }}
+            >
                 {groom.firstName}
             </h1>
             <span className="font-serif text-3xl md:text-5xl text-wedding-cream/90 italic font-light">&</span>
-            <h1 className="font-names font-bold text-6xl md:text-8xl lg:text-9xl text-wedding-cream drop-shadow-sm">
+            <h1 
+              className="font-names font-bold text-6xl md:text-8xl lg:text-9xl text-wedding-cream drop-shadow-sm"
+              style={{ fontFamily: '"Great Vibes", cursive' }}
+            >
                 {bride.firstName}
             </h1>
         </div>
