@@ -3,35 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tiến Khương ❤️ Thu Phương - Wedding Invitation</title>
+    <title>Thiệp Cưới | Tiến Khương & Thu Phương</title>
+    <meta name="description" content="Trân trọng kính mời quý khách đến dự lễ thành hôn của chúng tôi." />
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Charm:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS (CDN for simplicity, though local install is preferred for production) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Charm:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Pinyon+Script&family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
 
     <script>
       /* 
        * CUSTOMIZE COLORS HERE
-       * Strict Palette: Red, Gold, Cream
+       * Strict Palette: 2 Colors Only
+       * 1. Primary: Red (#9F1239)
+       * 2. Background: Cream (#FDFBF7)
        */
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'wedding-red': '#9F1239',   // Deep Ruby Red (Primary Action, Icons, Main Accent)
-              'wedding-gold': '#B45309',  // Antique Gold (Borders, Secondary Text, Dividers)
-              'wedding-cream': '#FDFBF7', // Warm Cream (Backgrounds)
+              'wedding-primary': '#9F1239', // Deep Ruby Red (Replaces both Red and Gold)
+              'wedding-bg': '#FDFBF7',      // Warm Cream
               
-              'wedding-text': '#374151',   // Crisp Slate (Body text)
-              'wedding-accent': '#9F1239', // Mapped to Red
-              'wedding-hero-text': '#FDFBF7', // Cream for text on dark images
+              // Mappings for compatibility
+              'wedding-red': '#9F1239',
+              'wedding-gold': '#9F1239',    // Gold is now Red
+              'wedding-cream': '#FDFBF7',
+              'wedding-text': '#374151',
             },
             fontFamily: {
-              names: ['"Great Vibes"', '"Dancing Script"', 'cursive'], 
+              names: ['"Pinyon Script"', '"Great Vibes"', '"Dancing Script"', 'cursive'], 
               script: ['"Charm"', 'cursive'],
               serif: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
               sans: ['"Be Vietnam Pro"', '"Quicksand"', 'sans-serif'],
@@ -44,6 +45,9 @@
       }
     </script>
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         background-color: #FDFBF7;
       }
@@ -54,11 +58,11 @@
         background: #FDFBF7;
       }
       ::-webkit-scrollbar-thumb {
-        background: #B45309;
+        background: #9F1239;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #9F1239;
+        background: #881337;
       }
       .animate-float {
         animation: float 6s ease-in-out infinite;
@@ -68,6 +72,13 @@
         50% { transform: translateY(-10px); }
         100% { transform: translateY(0px); }
       }
+      .animate-spin-slow {
+        animation: spin 15s linear infinite;
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
       .animate-fade-in {
         animation: fadeIn 0.8s ease-out forwards;
       }
@@ -75,31 +86,22 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      /* Double Happiness Symbol Animation */
-      .animate-pulse-slow {
-        animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-      @keyframes pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: .8; transform: scale(1.05); }
-      }
     </style>
-<script type="importmap">
+  <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.1",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
-    "react/": "https://esm.sh/react@^19.2.1/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.560.0",
-    "vite": "https://esm.sh/vite@^7.2.7",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
   }
 }
 </script>
 </head>
-  <body class="bg-wedding-cream text-wedding-text font-sans antialiased bg-floral-pattern">
+  <body class="bg-wedding-bg text-wedding-text font-sans antialiased bg-floral-pattern">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
