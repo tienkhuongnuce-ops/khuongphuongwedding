@@ -4,12 +4,6 @@ import { weddingConfig } from '../config';
 const Invitation: React.FC = () => {
   const { groom, bride } = weddingConfig;
 
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.target as HTMLImageElement;
-    target.onerror = null;
-    target.src = "https://placehold.co/400x400/e2e8f0/9F1239?text=No+Photo";
-  };
-
   return (
     <section id="invitation" className="py-24 px-4 relative overflow-hidden bg-wedding-cream">
       {/* Removed blobs for cleaner look */}
@@ -25,17 +19,10 @@ const Invitation: React.FC = () => {
             <span className="h-[2px] w-16 md:w-24 bg-wedding-gold/60"></span>
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-names text-wedding-red mb-3 drop-shadow-sm">Trân trọng kính mời</h2>
-        <div className="flex items-center justify-center gap-4 text-wedding-gold mb-8">
-            <span className="font-serif italic text-lg opacity-80">Save the Date</span>
-        </div>
-
-        <p className="font-serif text-xl md:text-2xl text-gray-700 mb-10 max-w-2xl mx-auto italic leading-relaxed">
-          "Yêu nhau mấy núi cũng trèo, mấy sông cũng lội, mấy đèo cũng qua."
-          <br />
-          <span className="text-base font-sans not-italic text-gray-500 mt-4 block">
-            Chúng mình rất mong chờ sự hiện diện của bạn trong ngày vui này.
-          </span>
+        <h2 className="text-3xl md:text-4xl font-names text-wedding-red mb-6 drop-shadow-sm">Trân trọng kính mời</h2>
+        
+        <p className="font-serif text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi.
         </p>
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24 relative mt-12">
@@ -44,13 +31,8 @@ const Invitation: React.FC = () => {
 
           {/* Groom's Side */}
           <div className="text-center relative z-10 p-6 transition-all duration-500">
-             <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-wedding-gold p-1 shadow-md bg-gray-200">
-                 <img 
-                   src={weddingConfig.images.gallery[0]} 
-                   alt="Groom" 
-                   className="w-full h-full object-cover rounded-full" 
-                   onError={handleImageError}
-                 />
+             <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-wedding-gold p-1 shadow-md">
+                 <img src={weddingConfig.images.gallery[0]} alt="Groom" className="w-full h-full object-cover rounded-full" />
              </div>
             <h3 className="text-4xl font-names text-wedding-red mb-2 scale-110 drop-shadow-sm">{groom.firstName}</h3>
             <p className="text-xs uppercase tracking-widest text-wedding-gold mb-4 font-bold">Chú Rể</p>
@@ -63,13 +45,8 @@ const Invitation: React.FC = () => {
 
           {/* Bride's Side */}
           <div className="text-center relative z-10 p-6 transition-all duration-500">
-            <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-wedding-gold p-1 shadow-md bg-gray-200">
-                 <img 
-                   src={weddingConfig.images.gallery[1]} 
-                   alt="Bride" 
-                   className="w-full h-full object-cover rounded-full" 
-                   onError={handleImageError}
-                 />
+            <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-wedding-gold p-1 shadow-md">
+                 <img src={weddingConfig.images.gallery[1]} alt="Bride" className="w-full h-full object-cover rounded-full" />
              </div>
             <h3 className="text-4xl font-names text-wedding-red mb-2 scale-110 drop-shadow-sm">{bride.firstName}</h3>
             <p className="text-xs uppercase tracking-widest text-wedding-gold mb-4 font-bold">Cô Dâu</p>
