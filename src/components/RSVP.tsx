@@ -39,6 +39,36 @@ const RSVP: React.FC = () => {
                 </div>
               </div>
 
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-3">Bạn là khách của</label>
+                    <div className="flex gap-4">
+                        <label className="flex-1 cursor-pointer">
+                            <input type="radio" name="guest_side" value="groom" className="peer sr-only" defaultChecked />
+                            <div className="text-center py-2 border border-wedding-red/20 rounded-lg text-wedding-red peer-checked:bg-wedding-red peer-checked:text-wedding-cream peer-checked:border-transparent transition-all font-bold text-sm">
+                                Nhà Trai
+                            </div>
+                        </label>
+                        <label className="flex-1 cursor-pointer">
+                            <input type="radio" name="guest_side" value="bride" className="peer sr-only" />
+                            <div className="text-center py-2 border border-wedding-red/20 rounded-lg text-wedding-red peer-checked:bg-wedding-red peer-checked:text-wedding-cream peer-checked:border-transparent transition-all font-bold text-sm">
+                                Nhà Gái
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-2">Số người tham dự</label>
+                    <select className="w-full border-b-2 border-wedding-red/20 focus:border-wedding-red px-0 py-2 outline-none transition-colors bg-transparent text-wedding-red font-bold cursor-pointer">
+                        <option value="1">1 Người</option>
+                        <option value="2">2 Người</option>
+                        <option value="3">3 Người</option>
+                        <option value="4">4 Người</option>
+                        <option value="5">5+ Người</option>
+                    </select>
+                </div>
+              </div>
+
               <div>
                 <label className="block text-xs font-bold text-wedding-red/60 uppercase tracking-wider mb-3">Tham dự</label>
                 <div className="flex gap-4">
