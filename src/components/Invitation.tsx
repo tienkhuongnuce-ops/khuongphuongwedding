@@ -34,8 +34,7 @@ const Invitation: React.FC = () => {
 
         {guestName && (
             <div 
-              className="my-8 md:my-12 text-6xl md:text-8xl lg:text-9xl text-wedding-red leading-normal break-words px-4 animate-fade-in drop-shadow-md tracking-widest"
-              style={{ fontFamily: '"Dancing Script", cursive' }}
+              className="my-8 md:my-12 text-6xl md:text-8xl lg:text-9xl text-wedding-red leading-normal break-words px-4 animate-fade-in drop-shadow-md tracking-widest font-names"
             >
                 {guestName}
             </div>
@@ -50,7 +49,7 @@ const Invitation: React.FC = () => {
              <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-wedding-red p-1">
                  <img src={weddingConfig.images.gallery[0]} alt="Groom" className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500" />
              </div>
-            <h3 className="text-4xl font-names text-wedding-red mb-2 scale-110 drop-shadow-sm">{groom.firstName}</h3>
+            <h3 className="text-5xl font-names font-bold text-wedding-red mb-2 scale-110 drop-shadow-sm">{groom.firstName}</h3>
             <p className="text-xs uppercase tracking-widest text-wedding-red mb-4 font-bold">Chú Rể</p>
             <div className="font-serif text-wedding-red space-y-1">
               {groom.father && <p className="font-semibold">Ông: {groom.father}</p>}
@@ -64,7 +63,7 @@ const Invitation: React.FC = () => {
             <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-wedding-red p-1">
                  <img src={weddingConfig.images.gallery[1]} alt="Bride" className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500" />
              </div>
-            <h3 className="text-4xl font-names text-wedding-red mb-2 scale-110 drop-shadow-sm">{bride.firstName}</h3>
+            <h3 className="text-5xl font-names font-bold text-wedding-red mb-2 scale-110 drop-shadow-sm">{bride.firstName}</h3>
             <p className="text-xs uppercase tracking-widest text-wedding-red mb-4 font-bold">Cô Dâu</p>
             <div className="font-serif text-wedding-red space-y-1">
               {bride.father && <p className="font-semibold">Ông: {bride.father}</p>}

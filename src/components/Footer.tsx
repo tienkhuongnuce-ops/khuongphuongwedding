@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     <footer className="bg-wedding-cream text-wedding-red py-12 text-center border-t border-wedding-red/20">
       <div className="max-w-4xl mx-auto px-4 flex flex-col items-center">
         <Heart size={24} className="text-wedding-red mb-6 fill-wedding-red/20" />
-        <div className="font-script font-bold text-5xl mb-4 text-wedding-red drop-shadow-sm">{groom.firstName} & {bride.firstName}</div>
+        <div className="font-names font-bold text-6xl mb-4 text-wedding-red drop-shadow-sm">{groom.firstName} & {bride.firstName}</div>
         <p className="font-sans text-xs uppercase tracking-[0.2em] opacity-50 mb-8">Thank you for celebrating with us</p>
       </div>
     </footer>
