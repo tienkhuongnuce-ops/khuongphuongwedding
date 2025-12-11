@@ -1,127 +1,15 @@
-<!DOCTYPE html>
-<html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tiến Khương ❤️ Thu Phương - Wedding Invitation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Charm:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap&subset=vietnamese" rel="stylesheet">
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-    <script>
-      /* 
-       * CUSTOMIZE COLORS HERE
-       * STRICT 2-COLOR PALETTE: Red (#9F1239) & Cream (#FDFBF7)
-       */
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'wedding-red': '#9F1239',   // The ONE dark color (Text, Buttons, Accents)
-              'wedding-cream': '#FDFBF7', // The ONE light color (Backgrounds)
-              
-              // Map all other semantic names to these two
-              'wedding-gold': '#9F1239',  // Gold -> Red
-              'wedding-text': '#9F1239',  // Text -> Red
-              'wedding-accent': '#9F1239',// Accent -> Red
-              'wedding-hero-text': '#FDFBF7', // White -> Cream
-              
-              // Override defaults to force the palette
-              white: '#FDFBF7',
-              black: '#9F1239',
-              gray: {
-                50: '#FDFBF7',
-                100: '#FDFBF7',
-                200: '#FDFBF7',
-                300: '#9F1239', // Borders
-                400: '#9F1239',
-                500: '#9F1239',
-                600: '#9F1239',
-                700: '#9F1239',
-                800: '#9F1239',
-                900: '#9F1239',
-              }
-            },
-            fontFamily: {
-              names: ['"Great Vibes"', '"Dancing Script"', 'cursive'], 
-              script: ['"Charm"', 'cursive'],
-              serif: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
-              sans: ['"Be Vietnam Pro"', '"Quicksand"', 'sans-serif'],
-            },
-            backgroundImage: {
-              'floral-pattern': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      body {
-        background-color: #FDFBF7;
-        color: #9F1239;
-      }
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #FDFBF7;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #9F1239;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #881337;
-      }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
-      }
-      .animate-ken-burns {
-        animation: kenBurns 20s ease-in-out infinite alternate;
-      }
-      @keyframes kenBurns {
-        0% { transform: scale(1) translate(0, 0); }
-        50% { transform: scale(1.15) translate(-2%, 0); }
-        100% { transform: scale(1) translate(0, 0); }
-      }
-      .animate-spin-slow {
-        animation: spin 15s linear infinite;
-      }
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      .animate-fade-in {
-        animation: fadeIn 0.8s ease-out forwards;
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
-    "vite": "https://aistudiocdn.com/vite@^7.2.4"
-  }
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error("Could not find root element to mount to");
 }
-</script>
-</head>
-  <body class="bg-wedding-cream text-wedding-red font-sans antialiased bg-floral-pattern">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
-</html>
+
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
