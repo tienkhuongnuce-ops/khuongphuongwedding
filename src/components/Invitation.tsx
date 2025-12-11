@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { weddingConfig } from '../config';
 
 const Invitation: React.FC = () => {
   const { groom, bride } = weddingConfig;
+  const [guestName, setGuestName] = useState('');
+
+  useEffect(() => {
+    // Check for guest name in URL parameters (e.g., ?to=Anh+Nam or ?guest=Chi+Lan)
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('to') || params.get('guest') || params.get('name');
+    if (name) {
+      setGuestName(name);
+    }
+  }, []);
 
   return (
     <section id="invitation" className="py-24 px-4 relative overflow-hidden bg-wedding-cream">
@@ -19,12 +29,15 @@ const Invitation: React.FC = () => {
             <span className="h-[2px] w-16 md:w-24 bg-wedding-gold/60"></span>
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-names text-wedding-red mb-6 drop-shadow-sm">Trân trọng kính mời</h2>
+        <h2 className="text-3xl md:text-4xl font-names text-wedding-red mb-6 drop-shadow-sm">
+            Trân trọng kính mời
+            {guestName && (
+                <div className="mt-3 font-serif text-2xl md:text-3xl text-wedding-text">
+                    {guestName}
+                </div>
+            )}
+        </h2>
         
-        <p className="font-serif text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi.
-        </p>
-
         <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24 relative mt-12">
             {/* Center Divider Desktop */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-wedding-gold/30 to-transparent"></div>
@@ -57,6 +70,10 @@ const Invitation: React.FC = () => {
             <p className="text-gray-500 text-sm italic mt-3 max-w-xs mx-auto">{bride.address}</p>
           </div>
         </div>
+
+        <p className="font-serif text-lg md:text-xl text-gray-600 mt-12 max-w-2xl mx-auto leading-relaxed">
+          Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi!
+        </p>
       </div>
     </section>
   );
