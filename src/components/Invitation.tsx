@@ -17,7 +17,7 @@ const Invitation: React.FC = () => {
   return (
     <section id="invitation" className="py-24 px-4 relative overflow-hidden bg-wedding-cream">
       
-      <div className="max-w-4xl mx-auto text-center bg-wedding-cream p-10 md:p-16 rounded-[2rem] shadow-none border-2 border-wedding-red/10 relative">
+      <div className="max-w-6xl mx-auto text-center bg-wedding-cream p-8 md:p-16 rounded-[2rem] shadow-none border-2 border-wedding-red/10 relative">
         {/* Double border effect */}
         <div className="absolute inset-3 border border-wedding-red/20 rounded-[1.5rem] pointer-events-none"></div>
 
@@ -28,14 +28,15 @@ const Invitation: React.FC = () => {
             <span className="h-[2px] w-16 md:w-24 bg-wedding-red/60"></span>
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-names text-wedding-red mb-6 drop-shadow-sm">
+        <div className="text-3xl md:text-4xl font-serif italic text-wedding-red/80 mb-4 drop-shadow-sm">
             Trân trọng kính mời
-            {guestName && (
-                <div className="mt-4 font-script text-4xl md:text-5xl text-wedding-red font-bold">
-                    {guestName}
-                </div>
-            )}
-        </h2>
+        </div>
+
+        {guestName && (
+            <div className="my-6 md:my-10 font-names text-6xl md:text-8xl lg:text-9xl text-wedding-red leading-tight break-words px-2 animate-fade-in drop-shadow-md">
+                {guestName}
+            </div>
+        )}
         
         <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24 relative mt-12">
             {/* Center Divider Desktop */}
