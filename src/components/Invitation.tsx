@@ -44,13 +44,13 @@ const Invitation: React.FC = () => {
               <div className="flex flex-col items-center justify-center gap-2 text-wedding-primary mb-10 min-h-[4rem]">
                   {guestName ? (
                     <>
-                      <span className="font-serif text-2xl md:text-4xl font-bold border-b-2 border-wedding-primary/20 pb-2 px-8 mt-2 text-wedding-primary">
+                      <span className="font-script text-4xl md:text-6xl font-bold border-b-2 border-wedding-primary/20 pb-2 px-8 mt-2 text-wedding-primary">
                         {guestName}
                       </span>
                     </>
                   ) : (
                     <>
-                      <span className="font-serif text-xl md:text-3xl font-bold mt-2">
+                      <span className="font-script text-3xl md:text-5xl font-bold mt-2">
                         Quý khách và Gia đình
                       </span>
                     </>
@@ -116,7 +116,7 @@ const Invitation: React.FC = () => {
 
             <ScrollAnimation variant="fade-up" delay={300}>
               <p className="font-serif text-xl md:text-2xl text-gray-600 mb-6 max-w-2xl mx-auto italic leading-relaxed">
-                  Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi!
+                  Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi
               </p>
             </ScrollAnimation>
         </div>
