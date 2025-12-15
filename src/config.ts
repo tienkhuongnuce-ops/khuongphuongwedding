@@ -2,7 +2,7 @@
     // -------------------------------------------------------------------------
     
     // Background photo (Landscape recommended) -> public/hero.jpg
-    hero: "/hero.jpg", 
+    hero: "/Couple.jpg", 
     
     // Profile photos -> public/groom.jpg, public/bride.jpg
     groom: "/groom.jpg",
@@ -13,12 +13,12 @@
 
     // Gallery photos -> public/gallery-1.jpg, etc.
     gallery: [
-      "/gallery-1.jpg",
-      "/gallery-2.jpg",
-      "/gallery-3.jpg",
-      "/gallery-4.jpg",
-      "/gallery-5.jpg",
-      "/gallery-6.jpg",
+      "/gallery1.jpg",
+      "/gallery2.jpg",
+      "/gallery3.jpg",
+      "/gallery4.jpg",
+      "/gallery5.jpg",
+      "/gallery6.jpg",
     ]
   },
   timeline: [
