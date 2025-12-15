@@ -17,7 +17,7 @@ export const weddingConfig = {
     fullName: "Nguyễn Tiến Khương",
     father: "", 
     mother: "Tiến Thị Hằng",
-    address: "Hưng Đạo, Quốc Oai, Hà Nội",
+    address: "Cụm 1, Hưng Đạo, Quốc Oai, Hà Nội",
     role: "Chú Rể (The Groom)",
     mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.976492453098412, 105.67053970444307",
     // Embed URL for Google Maps (iframe src)
@@ -35,7 +35,7 @@ export const weddingConfig = {
     fullName: "Đào Thu Phương",
     father: "Đào Xuân Tùng",
     mother: "Lê Thị Thúy",
-    address: "Tiền Hải, Thái Bình",
+    address: "Đông Quý, Tiền Hải, Thái Bình",
     role: "Cô Dâu (The Bride)",
     mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.4399119892005, 106.53997740644134",
     // Embed URL for Google Maps (iframe src)
@@ -82,7 +82,6 @@ export const weddingConfig = {
       "/gallery10.jpg",
       "/gallery11.jpg",
       "/gallery12.jpg",
-      "/gallery13.jpg",
     ]
   },
   timeline: [
