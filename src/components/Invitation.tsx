@@ -3,13 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { weddingConfig } from '../config';
 import ScrollAnimation from './ScrollAnimation';
 
-const CornerPattern: React.FC<{ className?: string }> = ({ className }) => (
-  <svg viewBox="0 0 50 50" className={`w-16 h-16 md:w-24 md:h-24 absolute pointer-events-none text-wedding-primary/30 ${className}`} fill="none">
-    <path d="M2 30 L 2 2 L 30 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
-    <path d="M6 35 L 6 6 L 35 6" stroke="currentColor" strokeWidth="1" strokeLinecap="square" />
-  </svg>
-);
-
 const Invitation: React.FC = () => {
   const { groom, bride, images } = weddingConfig;
   const [guestName, setGuestName] = useState<string>("");
@@ -33,12 +26,6 @@ const Invitation: React.FC = () => {
     <section id="invitation" className="py-24 px-4 relative overflow-hidden bg-wedding-bg">
       <div className="max-w-4xl mx-auto text-center bg-white p-10 md:p-16 rounded-[2rem] shadow-xl border-2 border-wedding-primary/10 relative overflow-hidden">
         
-        {/* Traditional Corner Patterns */}
-        <CornerPattern className="top-0 left-0" />
-        <CornerPattern className="top-0 right-0 transform scale-x-[-1]" />
-        <CornerPattern className="bottom-0 left-0 transform scale-y-[-1]" />
-        <CornerPattern className="bottom-0 right-0 transform rotate-180" />
-
         {/* Inner Border */}
         <div className="absolute inset-4 border border-wedding-primary/20 rounded-[1.5rem] pointer-events-none z-10"></div>
 
