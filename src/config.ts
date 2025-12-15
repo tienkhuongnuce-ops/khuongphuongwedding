@@ -61,7 +61,7 @@ export const weddingConfig = {
     title: "Pre-wedding Film",
     subtitle: "Lưu giữ khoảnh khắc",
     embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?si=Example", 
-    description: "Tình yêu không phải là tìm thấy một người hoàn hảo, mà là học cách nhìn thấy những điều tuyệt vời từ một người chưa hoàn hảo."
+    description: ""
   },
   images: {
     // Put files in the "public" folder of your project with these exact names.
@@ -76,12 +76,6 @@ export const weddingConfig = {
       "/gallery4.jpg",
       "/gallery5.jpg",
       "/gallery6.jpg",
-      "/gallery7.jpg",
-      "/gallery8.jpg",
-      "/gallery9.jpg",
-      "/gallery10.jpg",
-      "/gallery11.jpg",
-      "/gallery12.jpg",
     ]
   },
   timeline: [
