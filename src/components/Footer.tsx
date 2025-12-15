@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { weddingConfig } from '../config';
 import { Heart } from 'lucide-react';

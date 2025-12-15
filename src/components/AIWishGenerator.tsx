@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import SectionTitle from './SectionTitle';
 import { generateWeddingWish } from '../services/geminiService';

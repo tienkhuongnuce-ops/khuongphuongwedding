@@ -1,3 +1,4 @@
+
 export interface GuestWishRequest {
   name: string;
   relationship: 'family' | 'friend' | 'colleague' | 'other';
