@@ -4,10 +4,9 @@ import { weddingConfig } from '../config';
 import ScrollAnimation from './ScrollAnimation';
 
 const CornerPattern: React.FC<{ className?: string }> = ({ className }) => (
-  <svg viewBox="0 0 100 100" className={`w-16 h-16 md:w-24 md:h-24 absolute pointer-events-none text-wedding-primary/20 ${className}`} fill="currentColor">
-    <path d="M10,10 L30,10 C40,10 45,15 45,25 L45,30 C45,35 40,35 35,35 L30,35 L30,40 C30,45 25,45 25,35 L25,30 L10,30 L10,10 Z M90,10 L70,10 C60,10 55,15 55,25 L55,30 C55,35 60,35 65,35 L70,35 L70,40 C70,45 75,45 75,35 L75,30 L90,30 L90,10 Z" />
-    <path d="M0,0 L40,0 L40,5 L5,5 L5,40 L0,40 L0,0 Z" />
-    <path d="M20,20 Q30,20 30,30" fill="none" stroke="currentColor" strokeWidth="2" />
+  <svg viewBox="0 0 50 50" className={`w-16 h-16 md:w-24 md:h-24 absolute pointer-events-none text-wedding-primary/30 ${className}`} fill="none">
+    <path d="M2 30 L 2 2 L 30 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
+    <path d="M6 35 L 6 6 L 35 6" stroke="currentColor" strokeWidth="1" strokeLinecap="square" />
   </svg>
 );
 
