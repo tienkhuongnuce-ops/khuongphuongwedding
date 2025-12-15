@@ -119,20 +119,6 @@ const Invitation: React.FC = () => {
                   Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi
               </p>
             </ScrollAnimation>
-
-            {/* Wedding Procession Decoration (Rước Dâu) */}
-            {images.decoration && (
-            <ScrollAnimation variant="zoom-in" delay={400}>
-              <div className="w-full flex justify-center mt-8 opacity-90">
-                  <img 
-                  src={images.decoration} 
-                  alt="Traditional Wedding Decoration" 
-                  className="max-w-full h-auto md:max-h-32 object-contain mix-blend-multiply"
-                  onError={(e) => e.currentTarget.style.display = 'none'}
-                  />
-              </div>
-            </ScrollAnimation>
-            )}
         </div>
       </div>
     </section>
