@@ -61,6 +61,9 @@ const Invitation: React.FC = () => {
                       </span>
                     </>
                   )}
+                  <span className="font-serif text-lg md:text-xl text-gray-500 mt-3 italic">
+                    Tới dự lễ thành hôn của hai chúng tôi
+                  </span>
               </div>
             </ScrollAnimation>
 
@@ -122,7 +125,7 @@ const Invitation: React.FC = () => {
 
             <ScrollAnimation variant="fade-up" delay={300}>
               <p className="font-serif text-xl md:text-2xl text-gray-600 mb-6 max-w-2xl mx-auto italic leading-relaxed">
-                  Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi!
+                  Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi
               </p>
             </ScrollAnimation>
         </div>
