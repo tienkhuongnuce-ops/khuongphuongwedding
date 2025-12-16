@@ -125,7 +125,7 @@ export const weddingConfig = {
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "13:00 AM",
+        time: "11:30 AM",
         title: "Lễ Thành Hôn",
         location: "Tại Nhà Trai",
         iconType: "Home"
