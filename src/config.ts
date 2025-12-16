@@ -21,9 +21,9 @@ export const weddingConfig = {
     mother: "Tiến Thị Hằng",
     address: "Cụm 1, Hưng Đạo, Quốc Oai, Hà Nội",
     role: "Chú Rể (The Groom)",
-    mapUrl: "https://maps.app.goo.gl/9VKTshJcgxWErLC68",
+    mapUrl: "https://maps.app.goo.gl/w1bn6txv5rX5VSCA7",
     // Embed URL for Google Maps (iframe src)
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d828.2553286856697!2d105.67096454208702!3d20.976552989115074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1765854923207!5m2!1sen!2s",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d292.8328843491711!2d105.67064927834681!3d20.976349584904394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1765855050919!5m2!1sen!2s",
     banking: {
       bankName: "TPBank",
       bankId: "TPB", // VietQR Bank ID (e.g., VCB, TCB, MB, TPB)
