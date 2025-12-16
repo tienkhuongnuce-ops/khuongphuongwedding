@@ -32,9 +32,15 @@ const Invitation: React.FC = () => {
         <div className="relative z-20">
             {/* Traditional Header (—— 囍 ——) */}
             <ScrollAnimation variant="fade-up">
-              <div className="flex items-center justify-center gap-6 mb-10">
+              <div className="flex items-center justify-center gap-4 mb-10">
                   <span className="h-[1px] w-16 md:w-24 bg-wedding-primary/60"></span>
-                  <span className="text-5xl md:text-6xl font-serif text-wedding-primary font-bold tracking-widest drop-shadow-sm select-none bg-white px-4 border-2 border-wedding-primary rounded-full w-20 h-20 flex items-center justify-center">囍</span>
+                  
+                  {/* Double Happiness Circle Container */}
+                  <div className="w-20 h-20 bg-white border-2 border-wedding-primary rounded-full flex items-center justify-center shadow-sm z-10">
+                    {/* Symbol with optical alignment adjustments (pt-1) */}
+                    <span className="text-4xl md:text-5xl font-serif text-wedding-primary font-bold select-none leading-none pt-1">囍</span>
+                  </div>
+
                   <span className="h-[1px] w-16 md:w-24 bg-wedding-primary/60"></span>
               </div>
 
