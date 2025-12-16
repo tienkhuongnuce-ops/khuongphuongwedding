@@ -70,29 +70,36 @@ const Timeline: React.FC = () => {
                 
                 {/* Content Box */}
                 <div className="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 text-left md:text-right group cursor-default">
-                   {index % 2 !== 0 && <div className="hidden md:block">
-                       <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
-                       <div className="flex items-center justify-end gap-2 text-wedding-primary mt-1 font-bold">
-                          <span>{event.time}</span>
-                          <Clock size={14} />
-                       </div>
-                       <p className="text-gray-500 text-sm mt-2">{event.location}</p>
-                   </div>}
                    
                    {/* Mobile View (Always Left) */}
                    <div className="md:hidden">
-                       <h3 className="font-serif text-xl text-wedding-text">{event.title}</h3>
-                       <p className="font-bold text-wedding-primary mt-1">{event.time}</p>
-                       <p className="text-gray-500 text-sm mt-2">{event.location}</p>
+                       <div className="flex items-center gap-2 mb-1 text-wedding-primary font-bold">
+                           <Clock size={16} />
+                           <span className="text-lg">{event.time}</span>
+                       </div>
+                       <h3 className="font-serif text-2xl text-wedding-text">{event.title}</h3>
+                       <p className="text-gray-500 text-sm mt-1">{event.location}</p>
                    </div>
 
-                   {/* Desktop Left View */}
-                   {index % 2 === 0 && <div className="hidden md:block text-right">
-                       <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
-                       <div className="flex items-center justify-end md:justify-start gap-2 text-wedding-primary mt-1 font-bold">
-                          <Clock size={14} />
+                   {/* Desktop View - Right Aligned Item (Visually on Left side of screen if reversed? No, layout logic below) */}
+                   
+                   {/* Index ODD: Right side of vertical line */}
+                   {index % 2 !== 0 && <div className="hidden md:block">
+                       <div className="flex items-center justify-end gap-2 text-wedding-primary mb-2 font-bold">
                           <span>{event.time}</span>
+                          <Clock size={16} />
                        </div>
+                       <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
+                       <p className="text-gray-500 text-sm mt-2">{event.location}</p>
+                   </div>}
+
+                   {/* Index EVEN: Left side of vertical line */}
+                   {index % 2 === 0 && <div className="hidden md:block text-right">
+                       <div className="flex items-center justify-end gap-2 text-wedding-primary mb-2 font-bold">
+                          <span>{event.time}</span>
+                          <Clock size={16} />
+                       </div>
+                       <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
                        <p className="text-gray-500 text-sm mt-2">{event.location}</p>
                    </div>}
                 </div>
