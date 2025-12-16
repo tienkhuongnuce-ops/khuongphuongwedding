@@ -122,7 +122,7 @@ const Invitation: React.FC = () => {
 
             <ScrollAnimation variant="fade-up" delay={300}>
               <p className="font-serif text-xl md:text-2xl text-gray-600 mb-6 max-w-2xl mx-auto italic leading-relaxed">
-                  Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi
+                  Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi!
               </p>
             </ScrollAnimation>
         </div>
