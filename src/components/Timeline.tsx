@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import SectionTitle from './SectionTitle';
-import { MapPin, Coffee, GlassWater, Music, Heart, Clock } from 'lucide-react';
+import { MapPin, Coffee, GlassWater, Music, Heart, Clock, Car, Home } from 'lucide-react';
 import { weddingConfig } from '../config';
 
 // Helper to map string icon types to Components
@@ -10,15 +10,20 @@ const getIcon = (type: string) => {
     case 'Coffee': return <Coffee size={18} />;
     case 'GlassWater': return <GlassWater size={18} />;
     case 'Music': return <Music size={18} />;
+    case 'Car': return <Car size={18} />;
+    case 'Home': return <Home size={18} />;
     default: return <Heart size={18} />;
   }
 };
 
 const Timeline: React.FC = () => {
   const { timeline, date, groom, bride } = weddingConfig;
+  const [activeTab, setActiveTab] = useState<'groom' | 'bride'>('groom');
 
-  // Type guard for timeline (array vs object)
-  const events = Array.isArray(timeline) ? timeline : [];
+  // Handle both old array format (backward compatibility) and new object format
+  const events = Array.isArray(timeline) 
+    ? timeline 
+    : (activeTab === 'groom' ? timeline.groom : timeline.bride);
 
   return (
     <section className="py-24 bg-white relative">
@@ -27,13 +32,41 @@ const Timeline: React.FC = () => {
           title="Chương Trình Hôn Lễ" 
           subtitle={`${date.dayOfWeek}, ${date.fullDate}`} 
         />
+
+        {/* Tab Toggle for Groom/Bride side */}
+        {!Array.isArray(timeline) && (
+            <div className="flex justify-center mb-16">
+                <div className="flex bg-gray-100 p-1 rounded-full relative">
+                    <button 
+                        onClick={() => setActiveTab('groom')}
+                        className={`relative z-10 px-6 py-2 rounded-full font-serif text-sm md:text-base font-bold transition-all duration-300 ${
+                            activeTab === 'groom' 
+                            ? 'bg-wedding-primary text-white shadow-md' 
+                            : 'text-gray-500 hover:text-wedding-primary'
+                        }`}
+                    >
+                        Nhà Trai
+                    </button>
+                    <button 
+                        onClick={() => setActiveTab('bride')}
+                        className={`relative z-10 px-6 py-2 rounded-full font-serif text-sm md:text-base font-bold transition-all duration-300 ${
+                            activeTab === 'bride' 
+                            ? 'bg-wedding-primary text-white shadow-md' 
+                            : 'text-gray-500 hover:text-wedding-primary'
+                        }`}
+                    >
+                        Nhà Gái
+                    </button>
+                </div>
+            </div>
+        )}
         
-        <div className="relative mt-12 mb-20">
+        <div className="relative mb-20">
           {/* Vertical Dotted Line - Red */}
           <div className="absolute left-[15px] md:left-1/2 transform md:-translate-x-px top-0 bottom-0 border-l-2 border-dashed border-wedding-primary/30"></div>
 
           {events.map((event: any, index: number) => (
-            <div key={index} className={`flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+            <div key={`${activeTab}-${index}`} className={`flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} animate-fade-in`}>
                 
                 {/* Content Box */}
                 <div className="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 text-left md:text-right group cursor-default">

@@ -1,4 +1,5 @@
 
+import { Coffee, GlassWater, Music } from 'lucide-react';
 import React from 'react';
 
 // --- CONFIGURATION START ---
@@ -65,39 +66,85 @@ export const weddingConfig = {
   },
   images: {
     // Put files in the "public" folder of your project with these exact names.
-    hero: "/Couple.jpg", 
+    hero: "/hero.jpg", 
     groom: "/groom.jpg",
     bride: "/bride.jpg",
     decoration: "https://cdn-icons-png.flaticon.com/512/8664/8664654.png", 
     gallery: [
-      "/gallery1.jpg",
-      "/gallery2.jpg",
-      "/gallery3.jpg",
-      "/gallery4.jpg",
-      "/gallery5.jpg",
-      "/gallery6.jpg",
+      "/gallery-1.jpg",
+      "/gallery-2.jpg",
+      "/gallery-3.jpg",
+      "/gallery-4.jpg",
+      "/gallery-5.jpg",
+      "/gallery-6.jpg",
     ]
   },
-  timeline: [
-    {
-      time: "09:00 AM",
-      title: "Lễ Vu Quy (Tea Ceremony)",
-      location: "Nhà Riêng Cô Dâu",
-      iconType: "Coffee" 
-    },
-    {
-      time: "11:30 AM",
-      title: "Lễ Thành Hôn (Wedding Ceremony)",
-      location: "Trung Tâm Hội Nghị Gem Center",
-      iconType: "GlassWater"
-    },
-    {
-      time: "12:30 PM",
-      title: "Khai Tiệc (Reception)",
-      location: "Sảnh Pollux - Gem Center",
-      iconType: "Music"
-    }
-  ],
+  timeline: {
+    groom: [
+      {
+        time: "07:00 AM",
+        title: "Chuẩn bị sính lễ",
+        location: "Nhà Trai",
+        iconType: "Coffee" 
+      },
+      {
+        time: "08:15 AM",
+        title: "Xuất phát đón dâu",
+        location: "Di chuyển sang Nhà Gái",
+        iconType: "Car"
+      },
+      {
+        time: "09:00 AM",
+        title: "Lễ Vu Quy & Đón Dâu",
+        location: "Nhà Gái",
+        iconType: "Heart"
+      },
+      {
+        time: "10:30 AM",
+        title: "Lễ Thành Hôn",
+        location: "Nhà Trai",
+        iconType: "Home"
+      },
+      {
+        time: "11:30 AM",
+        title: "Tiệc Mừng",
+        location: "Trung Tâm Tiệc Cưới",
+        iconType: "GlassWater"
+      }
+    ],
+    bride: [
+      {
+        time: "06:00 AM",
+        title: "Make-up & Chuẩn bị",
+        location: "Nhà Gái",
+        iconType: "Coffee" 
+      },
+      {
+        time: "09:00 AM",
+        title: "Đón tiếp nhà trai",
+        location: "Nhà Gái",
+        iconType: "Heart"
+      },
+      {
+        time: "09:30 AM",
+        title: "Làm lễ gia tiên",
+        location: "Nhà Gái",
+        iconType: "Home"
+      },
+      {
+        time: "10:00 AM",
+        title: "Lên xe hoa",
+        location: "Về nhà chồng",
+        iconType: "Car"
+      },
+      {
+        time: "11:30 AM",
+        title: "Tiệc Mừng",
+        location: "Trung Tâm Tiệc Cưới",
+        iconType: "GlassWater"
+      }
+    ]
+  },
   audio: {
     bgMusic: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3", 
     buttonTitle: "Bật/Tắt Nhạc"
