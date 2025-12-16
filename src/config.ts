@@ -82,7 +82,7 @@ export const weddingConfig = {
       "/gallery8.jpg",
       "/gallery9.jpg",
       "/gallery10.jpg",
-      "/gallery11.jpg",
+      "/gallery11.png",
       "/gallery13.png",
     ]
   },
