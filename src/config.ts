@@ -23,7 +23,7 @@ export const weddingConfig = {
     role: "Chú Rể (The Groom)",
     mapUrl: "https://maps.app.goo.gl/9VKTshJcgxWErLC68",
     // Embed URL for Google Maps (iframe src)
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d852.5265196348283!2d105.670206!3d20.9762965!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1765854772465!5m2!1sen!2s",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d828.2553286856697!2d105.67096454208702!3d20.976552989115074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1765854923207!5m2!1sen!2s",
     banking: {
       bankName: "TPBank",
       bankId: "TPB", // VietQR Bank ID (e.g., VCB, TCB, MB, TPB)
