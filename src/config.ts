@@ -134,8 +134,8 @@ export const weddingConfig = {
     bride: [
       {
         date: "Thứ Bảy, 27/12/2025",
-        time: "09:00 AM",
-        title: "Lễ Nhóm Họ",
+        time: "07:00 AM",
+        title: "Lễ Ăn Hỏi",
         location: "Nhà Gái",
         iconType: "Home"
       },
@@ -148,38 +148,17 @@ export const weddingConfig = {
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "06:00 AM",
-        title: "Make-up & Chuẩn bị",
+        time: "07:00 AM",
+        title: "Lễ Vu Quy",
         location: "Nhà Gái",
         iconType: "Coffee" 
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "09:00 AM",
-        title: "Đón tiếp nhà trai",
-        location: "Nhà Gái",
-        iconType: "Heart"
-      },
-      {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "09:30 AM",
-        title: "Làm lễ gia tiên",
-        location: "Nhà Gái",
-        iconType: "Home"
-      },
-      {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "10:00 AM",
+        time: "08:00 AM",
         title: "Lên xe hoa",
         location: "Về nhà chồng",
         iconType: "Car"
-      },
-      {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "11:30 AM",
-        title: "Tiệc Mừng",
-        location: "Trung Tâm Tiệc Cưới",
-        iconType: "GlassWater"
       }
     ]
   },
