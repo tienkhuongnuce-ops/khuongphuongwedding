@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import SectionTitle from './SectionTitle';
-import { CheckCircle, Loader2, Users, User, HeartHandshake } from 'lucide-react';
+import { CheckCircle, Loader2, Users, User, Heart } from 'lucide-react';
 import { weddingConfig } from '../config';
 
 const RSVP: React.FC = () => {
@@ -16,7 +16,6 @@ const RSVP: React.FC = () => {
     phone: '',
     attending: 'yes',
     guestOf: 'groom',
-    relationship: 'friend',
     guests: '1',
     message: ''
   });
@@ -141,60 +140,38 @@ const RSVP: React.FC = () => {
                 </div>
               </div>
 
-              {/* Guest Of & Relationship */}
+              {/* Guest Of Selection */}
               <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Bạn là khách của?</label>
-                        <div className="flex gap-3">
-                            <label className="flex-1 cursor-pointer group">
-                                <input 
-                                  type="radio" 
-                                  name="guestOf" 
-                                  value="groom" 
-                                  checked={formData.guestOf === 'groom'}
-                                  onChange={handleChange}
-                                  className="peer sr-only" 
-                                />
-                                <div className="text-center py-3 px-2 border-2 border-gray-200 rounded-lg peer-checked:bg-blue-50 peer-checked:border-blue-500 peer-checked:text-blue-700 transition-all hover:border-blue-200 flex flex-col items-center gap-1">
-                                    <span className="font-bold text-sm">Nhà Trai</span>
-                                    <span className="text-[10px] uppercase opacity-60">Groom's Guest</span>
-                                </div>
-                            </label>
-                            <label className="flex-1 cursor-pointer group">
-                                <input 
-                                  type="radio" 
-                                  name="guestOf" 
-                                  value="bride" 
-                                  checked={formData.guestOf === 'bride'}
-                                  onChange={handleChange}
-                                  className="peer sr-only" 
-                                />
-                                <div className="text-center py-3 px-2 border-2 border-gray-200 rounded-lg peer-checked:bg-pink-50 peer-checked:border-pink-500 peer-checked:text-pink-700 transition-all hover:border-pink-200 flex flex-col items-center gap-1">
-                                    <span className="font-bold text-sm">Nhà Gái</span>
-                                    <span className="text-[10px] uppercase opacity-60">Bride's Guest</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
-                            <HeartHandshake size={14} /> Mối quan hệ
-                        </label>
-                        <select 
-                            name="relationship"
-                            value={formData.relationship}
+                  <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 text-center">Bạn là khách của?</label>
+                  <div className="flex gap-4">
+                      <label className="flex-1 cursor-pointer group">
+                          <input 
+                            type="radio" 
+                            name="guestOf" 
+                            value="groom" 
+                            checked={formData.guestOf === 'groom'}
                             onChange={handleChange}
-                            className="w-full border-b-2 border-gray-200 focus:border-wedding-primary bg-transparent py-2 outline-none text-gray-800"
-                        >
-                            <option value="friend">Bạn bè (Friend)</option>
-                            <option value="family">Người thân (Family)</option>
-                            <option value="colleague">Đồng nghiệp (Colleague)</option>
-                            <option value="partner">Đối tác (Partner)</option>
-                            <option value="other">Khác (Other)</option>
-                        </select>
-                    </div>
+                            className="peer sr-only" 
+                          />
+                          <div className="text-center py-4 px-2 border-2 border-gray-200 rounded-lg peer-checked:border-wedding-primary peer-checked:text-wedding-primary peer-checked:bg-wedding-primary/5 transition-all hover:border-wedding-primary/30 flex flex-col items-center gap-1">
+                              <span className="font-bold text-base">Nhà Trai</span>
+                              <span className="text-[10px] uppercase opacity-60">Groom's Guest</span>
+                          </div>
+                      </label>
+                      <label className="flex-1 cursor-pointer group">
+                          <input 
+                            type="radio" 
+                            name="guestOf" 
+                            value="bride" 
+                            checked={formData.guestOf === 'bride'}
+                            onChange={handleChange}
+                            className="peer sr-only" 
+                          />
+                          <div className="text-center py-4 px-2 border-2 border-gray-200 rounded-lg peer-checked:border-wedding-primary peer-checked:text-wedding-primary peer-checked:bg-wedding-primary/5 transition-all hover:border-wedding-primary/30 flex flex-col items-center gap-1">
+                              <span className="font-bold text-base">Nhà Gái</span>
+                              <span className="text-[10px] uppercase opacity-60">Bride's Guest</span>
+                          </div>
+                      </label>
                   </div>
               </div>
 
@@ -225,7 +202,7 @@ const RSVP: React.FC = () => {
                               onChange={handleChange}
                               className="peer sr-only" 
                             />
-                            <div className="text-center py-3 border border-gray-200 rounded-lg peer-checked:bg-gray-500 peer-checked:text-white peer-checked:border-transparent transition-all hover:bg-gray-50 shadow-sm font-medium">
+                            <div className="text-center py-3 border border-gray-200 rounded-lg peer-checked:bg-gray-200 peer-checked:text-gray-600 peer-checked:border-transparent transition-all hover:bg-gray-50 shadow-sm font-medium">
                                 Tiếc quá, mình bận
                             </div>
                         </label>

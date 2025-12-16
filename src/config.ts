@@ -11,8 +11,8 @@ export const weddingConfig = {
   // 1. Follow the instructions in README.md (Part 3) to create your Google Sheet.
   // 2. Paste your "Web App URL" inside the quotes below.
   // -------------------------------------------------------------------------
-  rsvpApiUrl: "https://script.google.com/macros/s/AKfycbwI2u4aFx5n_cgSePZHa5vsRwbQRK4WyqP6BinPJv0Y0m5yGFyWjgPYy1CXPrxBEifW/exec", 
-  wishesApiUrl: "https://script.google.com/macros/s/AKfycbwI2u4aFx5n_cgSePZHa5vsRwbQRK4WyqP6BinPJv0Y0m5yGFyWjgPYy1CXPrxBEifW/exec", // Usually the same as rsvpApiUrl
+  rsvpApiUrl: "https://script.google.com/macros/s/AKfycbzOW5beurD_1IeOLg8oxb8CuBGfRCdvV5HvIkHbK76WMvEBPVIqQpmgCqcIO-Wee5rX/exec", 
+  wishesApiUrl: "https://script.google.com/macros/s/AKfycbzOW5beurD_1IeOLg8oxb8CuBGfRCdvV5HvIkHbK76WMvEBPVIqQpmgCqcIO-Wee5rX/exec", // Usually the same as rsvpApiUrl
 
   groom: {
     firstName: "Tiến Khương",
