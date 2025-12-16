@@ -148,7 +148,7 @@ export const weddingConfig = {
       },
       {
         date: "Thứ Bảy, 27/12/2025",
-        time: "044:00 PM",
+        time: "04:00 PM",
         title: "Tiệc Mừng",
         location: "Tại Nhà Gái",
         iconType: "Utensils"
