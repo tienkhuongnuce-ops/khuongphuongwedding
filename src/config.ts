@@ -82,35 +82,11 @@ export const weddingConfig = {
   timeline: {
     groom: [
       {
-        time: "07:00 AM",
-        title: "Chuẩn bị sính lễ",
+        time: "15:00",
+        title: "Tiệc mừng",
         location: "Nhà Trai",
         iconType: "Coffee" 
       },
-      {
-        time: "08:15 AM",
-        title: "Xuất phát đón dâu",
-        location: "Di chuyển sang Nhà Gái",
-        iconType: "Car"
-      },
-      {
-        time: "09:00 AM",
-        title: "Lễ Vu Quy & Đón Dâu",
-        location: "Nhà Gái",
-        iconType: "Heart"
-      },
-      {
-        time: "10:30 AM",
-        title: "Lễ Thành Hôn",
-        location: "Nhà Trai",
-        iconType: "Home"
-      },
-      {
-        time: "11:30 AM",
-        title: "Tiệc Mừng",
-        location: "Trung Tâm Tiệc Cưới",
-        iconType: "GlassWater"
-      }
     ],
     bride: [
       {
