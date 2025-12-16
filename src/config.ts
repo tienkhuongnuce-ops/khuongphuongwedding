@@ -83,49 +83,49 @@ export const weddingConfig = {
     groom: [
       {
         date: "Thứ Bảy, 27/12/2025",
-        time: "08:00 AM",
-        title: "Dựng Rạp & Trang Trí",
+        time: "03:00 AM",
+        title: "Di Chuyển Sang Nhà Gái",
         location: "Nhà Trai",
         iconType: "Home"
       },
       {
         date: "Thứ Bảy, 27/12/2025",
-        time: "17:00 PM",
-        title: "Tiệc Cơm Thân Mật",
-        location: "Tư Gia Nhà Trai",
+        time: "07:00 AM",
+        title: "Lễ Ăn Hỏi",
+        location: "Tư Gia Nhà Gái",
         iconType: "GlassWater"
       },
       {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "07:00 AM",
-        title: "Chuẩn bị sính lễ",
+        date: "Thứ Bảy, 27/12/2025",
+        time: "03:00 PM",
+        title: "Tiệc Mừng",
         location: "Nhà Trai",
         iconType: "Coffee" 
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "08:15 AM",
+        time: "03:00 AM",
         title: "Xuất phát đón dâu",
-        location: "Di chuyển sang Nhà Gái",
+        location: "Nhà Trai",
         iconType: "Car"
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "09:00 AM",
+        time: "07:00 AM",
         title: "Lễ Vu Quy & Đón Dâu",
         location: "Nhà Gái",
         iconType: "Heart"
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "10:30 AM",
+        time: "11:30 AM",
         title: "Lễ Thành Hôn",
         location: "Nhà Trai",
         iconType: "Home"
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "11:30 AM",
+        time: "12:30 PM",
         title: "Tiệc Mừng",
         location: "Trung Tâm Tiệc Cưới",
         iconType: "GlassWater"
