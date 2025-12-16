@@ -84,103 +84,82 @@ export const weddingConfig = {
     groom: [
       {
         date: "Thứ Bảy, 27/12/2025",
-        time: "08:00 AM",
-        title: "Dựng Rạp & Trang Trí",
-        location: "Nhà Trai",
+        time: "03:00 AM",
+        title: "Di chuyển sang nhà gái",
+        location: "Tư gia nhà trai",
         iconType: "Home"
       },
       {
         date: "Thứ Bảy, 27/12/2025",
-        time: "17:00 PM",
-        title: "Tiệc Cơm Thân Mật",
-        location: "Tư Gia Nhà Trai",
+        time: "07:00 PM",
+        title: "Lễ ăn hỏi",
+        location: "Tư gia nhà gái",
         iconType: "Utensils"
       },
       {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "07:00 AM",
-        title: "Chuẩn bị sính lễ",
-        location: "Nhà Trai",
+        date: "Thứ Bảy, 27/12/2025",
+        time: "03:00 AM",
+        title: "Tiệc mừng",
+        location: "Tư gia nhà trai",
         iconType: "Gift" 
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "08:15 AM",
+        time: "03:00 AM",
         title: "Xuất phát đón dâu",
         location: "Di chuyển sang Nhà Gái",
         iconType: "Car"
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "09:00 AM",
+        time: "07:00 AM",
         title: "Lễ Vu Quy & Đón Dâu",
-        location: "Nhà Gái",
-        iconType: "Heart"
-      },
-      {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "10:30 AM",
-        title: "Lễ Thành Hôn",
-        location: "Nhà Trai",
+        location: "Tư gia nhà gái",
         iconType: "Heart"
       },
       {
         date: "Chủ Nhật, 28/12/2025",
         time: "11:30 AM",
+        title: "Lễ Thành Hôn",
+        location: "Tư gia nhà trai",
+        iconType: "Heart"
+      },
+      {
+        date: "Chủ Nhật, 28/12/2025",
+        time: "12:30 AM",
         title: "Tiệc Mừng",
-        location: "Trung Tâm Tiệc Cưới",
+        location: "Tư gia nhà trai",
         iconType: "Utensils"
       }
     ],
     bride: [
       {
         date: "Thứ Bảy, 27/12/2025",
-        time: "09:00 AM",
-        title: "Lễ Nhóm Họ",
-        location: "Nhà Gái",
+        time: "07:00 AM",
+        title: "Lễ ăn hỏi",
+        location: "Tư gia nhà gái",
         iconType: "Home"
       },
       {
         date: "Thứ Bảy, 27/12/2025",
         time: "16:00 PM",
         title: "Tiệc Mặn Đãi Khách",
-        location: "Tư Gia Nhà Gái",
+        location: "Tư gia nhà gái",
         iconType: "Utensils"
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "06:00 AM",
-        title: "Make-up & Chuẩn bị",
-        location: "Nhà Gái",
-        iconType: "Sparkles" 
-      },
-      {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "09:00 AM",
-        title: "Đón tiếp nhà trai",
-        location: "Nhà Gái",
-        iconType: "Heart"
-      },
-      {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "09:30 AM",
+        time: "07:00 AM",
         title: "Làm lễ gia tiên",
         location: "Nhà Gái",
         iconType: "Home"
       },
       {
         date: "Chủ Nhật, 28/12/2025",
-        time: "10:00 AM",
+        time: "08:00 AM",
         title: "Lên xe hoa",
         location: "Về nhà chồng",
         iconType: "Car"
-      },
-      {
-        date: "Chủ Nhật, 28/12/2025",
-        time: "11:30 AM",
-        title: "Tiệc Mừng",
-        location: "Trung Tâm Tiệc Cưới",
-        iconType: "Utensils"
       }
     ]
   },
