@@ -65,54 +65,69 @@ const Timeline: React.FC = () => {
           {/* Vertical Dotted Line - Red */}
           <div className="absolute left-[15px] md:left-1/2 transform md:-translate-x-px top-0 bottom-0 border-l-2 border-dashed border-wedding-primary/30"></div>
 
-          {events.map((event: any, index: number) => (
-            <div key={`${activeTab}-${index}`} className={`flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} animate-fade-in`}>
-                
-                {/* Content Box */}
-                <div className="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 text-left md:text-right group cursor-default">
-                   
-                   {/* Mobile View (Always Left) */}
-                   <div className="md:hidden">
-                       <div className="flex items-center gap-2 mb-1 text-wedding-primary font-bold">
-                           <Clock size={16} />
-                           <span className="text-lg">{event.time}</span>
-                       </div>
-                       <h3 className="font-serif text-2xl text-wedding-text">{event.title}</h3>
-                       <p className="text-gray-500 text-sm mt-1">{event.location}</p>
-                   </div>
+          {events.map((event: any, index: number) => {
+            const showDateHeader = index === 0 || (event.date && event.date !== events[index - 1].date);
+            
+            return (
+                <React.Fragment key={`${activeTab}-${index}`}>
+                    {/* Date Header */}
+                    {showDateHeader && event.date && (
+                        <div className="flex justify-center my-10 relative z-10 animate-fade-in">
+                            <div className="bg-white px-4 py-1">
+                                <span className="bg-wedding-primary/5 text-wedding-primary px-6 py-2 rounded-full font-serif font-bold border border-wedding-primary/20 shadow-sm">
+                                    {event.date}
+                                </span>
+                            </div>
+                        </div>
+                    )}
 
-                   {/* Desktop View - Right Aligned Item (Visually on Left side of screen if reversed? No, layout logic below) */}
-                   
-                   {/* Index ODD: Right side of vertical line */}
-                   {index % 2 !== 0 && <div className="hidden md:block">
-                       <div className="flex items-center justify-end gap-2 text-wedding-primary mb-2 font-bold">
-                          <span>{event.time}</span>
-                          <Clock size={16} />
-                       </div>
-                       <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
-                       <p className="text-gray-500 text-sm mt-2">{event.location}</p>
-                   </div>}
+                    <div className={`flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} animate-fade-in`}>
+                        
+                        {/* Content Box */}
+                        <div className="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 text-left md:text-right group cursor-default">
+                        
+                        {/* Mobile View (Always Left) */}
+                        <div className="md:hidden">
+                            <div className="flex items-center gap-2 mb-1 text-wedding-primary font-bold">
+                                <Clock size={16} />
+                                <span className="text-lg">{event.time}</span>
+                            </div>
+                            <h3 className="font-serif text-2xl text-wedding-text">{event.title}</h3>
+                            <p className="text-gray-500 text-sm mt-1">{event.location}</p>
+                        </div>
 
-                   {/* Index EVEN: Left side of vertical line */}
-                   {index % 2 === 0 && <div className="hidden md:block text-right">
-                       <div className="flex items-center justify-end gap-2 text-wedding-primary mb-2 font-bold">
-                          <span>{event.time}</span>
-                          <Clock size={16} />
-                       </div>
-                       <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
-                       <p className="text-gray-500 text-sm mt-2">{event.location}</p>
-                   </div>}
-                </div>
-                
-                {/* Center Icon Bubble */}
-                <div className="absolute left-[2px] md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-white border-2 border-wedding-primary rounded-full z-10 flex items-center justify-center text-wedding-primary shadow-sm">
-                   {getIcon(event.iconType)}
-                </div>
+                        {/* Desktop View - Right Aligned Item */}
+                        {index % 2 !== 0 && <div className="hidden md:block">
+                            <div className="flex items-center justify-end gap-2 text-wedding-primary mb-2 font-bold">
+                                <span>{event.time}</span>
+                                <Clock size={16} />
+                            </div>
+                            <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
+                            <p className="text-gray-500 text-sm mt-2">{event.location}</p>
+                        </div>}
 
-                {/* Empty Space for alignment */}
-                <div className="w-full md:w-5/12 hidden md:block"></div>
-            </div>
-          ))}
+                        {/* Desktop View - Left Aligned Item */}
+                        {index % 2 === 0 && <div className="hidden md:block text-right">
+                            <div className="flex items-center justify-end gap-2 text-wedding-primary mb-2 font-bold">
+                                <span>{event.time}</span>
+                                <Clock size={16} />
+                            </div>
+                            <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
+                            <p className="text-gray-500 text-sm mt-2">{event.location}</p>
+                        </div>}
+                        </div>
+                        
+                        {/* Center Icon Bubble */}
+                        <div className="absolute left-[2px] md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-white border-2 border-wedding-primary rounded-full z-10 flex items-center justify-center text-wedding-primary shadow-sm">
+                        {getIcon(event.iconType)}
+                        </div>
+
+                        {/* Empty Space for alignment */}
+                        <div className="w-full md:w-5/12 hidden md:block"></div>
+                    </div>
+                </React.Fragment>
+            );
+          })}
         </div>
         
         {/* Map Cards */}

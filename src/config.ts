@@ -66,54 +66,116 @@ export const weddingConfig = {
   },
   images: {
     // Put files in the "public" folder of your project with these exact names.
-    hero: "/Couple.jpg", 
+    hero: "/hero.jpg", 
     groom: "/groom.jpg",
     bride: "/bride.jpg",
     decoration: "https://cdn-icons-png.flaticon.com/512/8664/8664654.png", 
     gallery: [
-      "/gallery1.jpg",
-      "/gallery2.jpg",
-      "/gallery3.jpg",
-      "/gallery4.jpg",
-      "/gallery5.jpg",
-      "/gallery6.jpg",
+      "/gallery-1.jpg",
+      "/gallery-2.jpg",
+      "/gallery-3.jpg",
+      "/gallery-4.jpg",
+      "/gallery-5.jpg",
+      "/gallery-6.jpg",
     ]
   },
   timeline: {
     groom: [
       {
-        time: "15:00",
-        title: "Tiệc mừng",
+        date: "Thứ Bảy, 27/12/2025",
+        time: "08:00 AM",
+        title: "Dựng Rạp & Trang Trí",
+        location: "Nhà Trai",
+        iconType: "Home"
+      },
+      {
+        date: "Thứ Bảy, 27/12/2025",
+        time: "17:00 PM",
+        title: "Tiệc Cơm Thân Mật",
+        location: "Tư Gia Nhà Trai",
+        iconType: "GlassWater"
+      },
+      {
+        date: "Chủ Nhật, 28/12/2025",
+        time: "07:00 AM",
+        title: "Chuẩn bị sính lễ",
         location: "Nhà Trai",
         iconType: "Coffee" 
       },
+      {
+        date: "Chủ Nhật, 28/12/2025",
+        time: "08:15 AM",
+        title: "Xuất phát đón dâu",
+        location: "Di chuyển sang Nhà Gái",
+        iconType: "Car"
+      },
+      {
+        date: "Chủ Nhật, 28/12/2025",
+        time: "09:00 AM",
+        title: "Lễ Vu Quy & Đón Dâu",
+        location: "Nhà Gái",
+        iconType: "Heart"
+      },
+      {
+        date: "Chủ Nhật, 28/12/2025",
+        time: "10:30 AM",
+        title: "Lễ Thành Hôn",
+        location: "Nhà Trai",
+        iconType: "Home"
+      },
+      {
+        date: "Chủ Nhật, 28/12/2025",
+        time: "11:30 AM",
+        title: "Tiệc Mừng",
+        location: "Trung Tâm Tiệc Cưới",
+        iconType: "GlassWater"
+      }
     ],
     bride: [
       {
+        date: "Thứ Bảy, 27/12/2025",
+        time: "09:00 AM",
+        title: "Lễ Nhóm Họ",
+        location: "Nhà Gái",
+        iconType: "Home"
+      },
+      {
+        date: "Thứ Bảy, 27/12/2025",
+        time: "16:00 PM",
+        title: "Tiệc Mặn Đãi Khách",
+        location: "Tư Gia Nhà Gái",
+        iconType: "GlassWater"
+      },
+      {
+        date: "Chủ Nhật, 28/12/2025",
         time: "06:00 AM",
         title: "Make-up & Chuẩn bị",
         location: "Nhà Gái",
         iconType: "Coffee" 
       },
       {
+        date: "Chủ Nhật, 28/12/2025",
         time: "09:00 AM",
         title: "Đón tiếp nhà trai",
         location: "Nhà Gái",
         iconType: "Heart"
       },
       {
+        date: "Chủ Nhật, 28/12/2025",
         time: "09:30 AM",
         title: "Làm lễ gia tiên",
         location: "Nhà Gái",
         iconType: "Home"
       },
       {
+        date: "Chủ Nhật, 28/12/2025",
         time: "10:00 AM",
         title: "Lên xe hoa",
         location: "Về nhà chồng",
         iconType: "Car"
       },
       {
+        date: "Chủ Nhật, 28/12/2025",
         time: "11:30 AM",
         title: "Tiệc Mừng",
         location: "Trung Tâm Tiệc Cưới",
