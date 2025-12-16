@@ -62,7 +62,7 @@ export const weddingConfig = {
   video: {
     title: "Pre-wedding Film",
     subtitle: "Lưu giữ khoảnh khắc",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?si=Example", 
+    embedUrl: "https://youtu.be/9lx6s9pi87Q?si=sVc6BNf83xrqFlSF", 
     description: ""
   },
   images: {
