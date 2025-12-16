@@ -84,7 +84,7 @@ const Timeline: React.FC = () => {
                     <div className={`flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} animate-fade-in`}>
                         
                         {/* Content Box */}
-                        <div className="w-full md:w-5/12 pl-12 md:pl-0 md:pr-12 text-left md:text-right group cursor-default">
+                        <div className={`w-full md:w-5/12 pl-12 group cursor-default ${index % 2 === 0 ? 'md:pl-0 md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
                         
                         {/* Mobile View (Always Left) */}
                         <div className="md:hidden">
@@ -96,18 +96,18 @@ const Timeline: React.FC = () => {
                             <p className="text-gray-500 text-sm mt-1">{event.location}</p>
                         </div>
 
-                        {/* Desktop View - Right Aligned Item */}
+                        {/* Desktop View - Right Aligned Item (Odd Index - Right side of timeline) */}
                         {index % 2 !== 0 && <div className="hidden md:block">
-                            <div className="flex items-center justify-end gap-2 text-wedding-primary mb-2 font-bold">
-                                <span>{event.time}</span>
+                            <div className="flex items-center justify-start gap-2 text-wedding-primary mb-2 font-bold">
                                 <Clock size={16} />
+                                <span>{event.time}</span>
                             </div>
                             <h3 className="font-serif text-2xl text-wedding-text group-hover:text-wedding-primary transition-colors">{event.title}</h3>
                             <p className="text-gray-500 text-sm mt-2">{event.location}</p>
                         </div>}
 
-                        {/* Desktop View - Left Aligned Item */}
-                        {index % 2 === 0 && <div className="hidden md:block text-right">
+                        {/* Desktop View - Left Aligned Item (Even Index - Left side of timeline) */}
+                        {index % 2 === 0 && <div className="hidden md:block">
                             <div className="flex items-center justify-end gap-2 text-wedding-primary mb-2 font-bold">
                                 <span>{event.time}</span>
                                 <Clock size={16} />
