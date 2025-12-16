@@ -61,7 +61,8 @@ const Invitation: React.FC = () => {
                       </span>
                     </>
                   )}
-                  <span className="font-serif text-lg md:text-xl text-gray-500 mt-3 italic">
+                  {/* Updated styling to match "Trân trọng kính mời" */}
+                  <span className="text-3xl md:text-4xl font-names text-wedding-primary mt-3 drop-shadow-sm">
                     Tới dự lễ thành hôn của hai chúng tôi
                   </span>
               </div>
