@@ -39,9 +39,9 @@ export const weddingConfig = {
     mother: "Lê Thị Thúy",
     address: "Đông Quý, Tiền Hải, Thái Bình",
     role: "Cô Dâu (The Bride)",
-    mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.4399119892005, 106.53997740644134",
+    mapUrl: "https://maps.app.goo.gl/bTk2utqTdSzaX7yWA",
     // Embed URL for Google Maps (iframe src)
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.987654321!2d106.53997740644134!3d20.4399119892005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI2JzIzLjciTiAxMDbCsDMyJzIzLjkiRQ!5e0!3m2!1sen!2s!4v1645455000000!5m2!1sen!2s",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254.35639738219456!2d106.53992832274389!3d20.43981256557811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a0786968b4335%3A0xa720c64c1e1e07a5!2zQ2jhu6MgQ8OieSBYYW5o!5e1!3m2!1sen!2s!4v1765855200572!5m2!1sen!2s",
     banking: {
       bankName: "Vietcombank",
       bankId: "VCB", 
