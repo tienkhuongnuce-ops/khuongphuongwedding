@@ -66,17 +66,17 @@ export const weddingConfig = {
   },
   images: {
     // Put files in the "public" folder of your project with these exact names.
-    hero: "/hero.jpg", 
+    hero: "/Couple.jpg", 
     groom: "/groom.jpg",
     bride: "/bride.jpg",
     decoration: "https://cdn-icons-png.flaticon.com/512/8664/8664654.png", 
     gallery: [
-      "/gallery-1.jpg",
-      "/gallery-2.jpg",
-      "/gallery-3.jpg",
-      "/gallery-4.jpg",
-      "/gallery-5.jpg",
-      "/gallery-6.jpg",
+      "/gallery1.jpg",
+      "/gallery2.jpg",
+      "/gallery3.jpg",
+      "/gallery4.jpg",
+      "/gallery5.jpg",
+      "/gallery6.jpg",
     ]
   },
   timeline: {
