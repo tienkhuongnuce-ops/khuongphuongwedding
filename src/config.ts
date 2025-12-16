@@ -21,7 +21,7 @@ export const weddingConfig = {
     mother: "Tiến Thị Hằng",
     address: "Cụm 1, Hưng Đạo, Quốc Oai, Hà Nội",
     role: "Chú Rể (The Groom)",
-    mapUrl: "https://www.google.com/maps/dir/?api=1&destination=20.976492453098412, 105.67053970444307",
+    mapUrl: "https://maps.app.goo.gl/9VKTshJcgxWErLC68",
     // Embed URL for Google Maps (iframe src)
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.795293297184!2d105.66835101540156!3d20.97649249539074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313452faa62725ad%3A0x60813955684fb650!2zSMawbmcgxJDhuqFvLCBRdeG7kWMgT2FpLCBIYSBOb2ksIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1645455000000!5m2!1sen!2s",
     banking: {
