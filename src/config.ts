@@ -72,7 +72,7 @@ export const weddingConfig = {
     bride: "/gallery2.jpg",
     decoration: "https://cdn-icons-png.flaticon.com/512/8664/8664654.png", 
     gallery: [
-      "/gallery1.jpg",
+      "/gallery1.png",
       "/gallery2.jpg",
       "/gallery3.jpg",
       "/gallery4.png",
