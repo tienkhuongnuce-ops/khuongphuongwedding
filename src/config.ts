@@ -69,7 +69,7 @@ export const weddingConfig = {
     // Put files in the "public" folder of your project with these exact names.
     hero: "/Couple.jpg", 
     groom: "/groom.png",
-    bride: "/gallery2.jpg",
+    bride: "/bride.png",
     decoration: "https://cdn-icons-png.flaticon.com/512/8664/8664654.png", 
     gallery: [
       "/gallery1.png",
