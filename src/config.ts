@@ -84,6 +84,14 @@ export const weddingConfig = {
       "/gallery10.jpg",
       "/gallery11.jpg",
       "/gallery12.jpg",
+      "/gallery13.png",
+      "/gallery14.png",
+      "/gallery15.png",
+      "/gallery16.png",
+      "/gallery17.png",
+      "/gallery18.png",
+      "/gallery19.png",
+      "/gallery20.png",
     ]
   },
   timeline: {
